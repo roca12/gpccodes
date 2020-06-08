@@ -1,9 +1,6 @@
-import math
-
-
 def BinarySearch(arr, inicio, fin, numerobuscado):
     if(fin>=inicio):
-        medio = int(inicio+(fin-1)/2)
+        medio = int((inicio+(fin-1))/2)
         if(arr[medio] == numerobuscado):
             return medio
         if(arr[medio] > numerobuscado):
@@ -12,26 +9,18 @@ def BinarySearch(arr, inicio, fin, numerobuscado):
             return BinarySearch(arr,medio+1,fin,numerobuscado)
     return -1
 
-
-
-def exponentialSearch(lista,n,x):
-    if lista[0]==x:
+def exponentialSearch(arr,tam,buscado):
+    if(arr[0] == buscado):
         return 0
     i = int(1)
-    while i<n and lista[i]<=x:
-        i*=2
+    while (i<tam and arr[i]<=buscado):
+        i = i*2
+    return BinarySearch(arr,i//2,min(i,tam),buscado)
 
-    if n<i:
-        return BinarySearch(lista, i // 2, n, x)
-    else:
-        return BinarySearch(lista, i // 2, i, x)
-
-lista = [1,2,3,4,5]
-x = int(4)
-resultado = int(exponentialSearch(lista,len(lista),x))
-if resultado < 0:
-    print("Elemento no esta en la lista")
+lista = [1,2,3,4,5,6]
+buscado = int(6)
+resultado = int(exponentialSearch(lista, len(lista), buscado))
+if(resultado < 0):
+    print ("El elemento no se encuentra dentro del arreglo")
 else:
-    print("Elemento dentro de la lista en:",resultado)
-
-
+    print("El elemento esta en la posicion:",resultado)
