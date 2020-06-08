@@ -1,3 +1,4 @@
+#correccion de la correccion jajaja :v
 def BinarySearch(arr, inicio, fin, numerobuscado):
     if(fin>=inicio):
         medio = int((inicio+(fin-1))/2)
@@ -18,9 +19,12 @@ def exponentialSearch(arr,tam,buscado):
     return BinarySearch(arr,i//2,min(i,tam),buscado)
 
 lista = [1,2,3,4,5,6]
-buscado = int(6)
-resultado = int(exponentialSearch(lista, len(lista), buscado))
-if(resultado < 0):
-    print ("El elemento no se encuentra dentro del arreglo")
+buscado = int(10)
+if buscado in lista:
+    resultado = int(exponentialSearch(lista, len(lista), buscado))
+    if (resultado < 0):
+        print("El elemento no se encuentra dentro del arreglo")
+    else:
+        print("El elemento esta en la posicion:", resultado)
 else:
-    print("El elemento esta en la posicion:",resultado)
+    print("-1")
