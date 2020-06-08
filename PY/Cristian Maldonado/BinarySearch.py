@@ -11,7 +11,7 @@ def BinarySearch(arr, inicio, fin, numerobuscado):
 
 arr = [1,2,3,4,5,6]
 tam = len(arr)
-numerobuscado = 5
+numerobuscado = 7
 resultado = int (BinarySearch(arr,0,tam-1,numerobuscado))
 if(resultado == -1):
     print("Elemento no encontrado")
