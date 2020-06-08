@@ -14,7 +14,7 @@ public class Main {
     }
 
     static int binarySearch(int arr[], int inicio, int fin, int numeroabuscar) {
-        if (fin >= inicio) {
+        if (fin > inicio) {
             int medio = inicio + (fin - 1) / 2;
             if (arr[medio] == numeroabuscar) {
                 return medio;
