@@ -14,7 +14,7 @@ public class Main {
         Integer a[] = new Integer[lista.size()];
         int resultado = exponentialSearch(lista.toArray(a), lista.size(), x);
         System.out.println(
-                (resultado < 0) ? "El resultado no está presente en el array" : "Elemento encontrado en: " + resultado);
+                (resultado < 0) ? "El resultado no está presente en el array" : "Elemento encontrado en el indice: " + resultado);
 
     }
 
