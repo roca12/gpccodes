@@ -1,21 +1,23 @@
-#include <cstdio>
+#include <cstdlib>
+#include <bits/stdc++.h>
+using namespace std;
 
-static int binarySearch(int arr[], int inicio, int fin, int numeroabuscar)
+static int binarySearch(int lista[], int izq, int der, int numeroabuscar)
 {
-    if (fin >= inicio)
+    if (der >= izq)
     {
-        int medio = inicio + (fin - 1) / 2;
-        if (arr[medio] == numeroabuscar)
+        int medio = izq + (der - izq) / 2;
+        if (lista[medio] == numeroabuscar)
         {
             return medio;
         }
-        if (arr[medio] > numeroabuscar)
+        if (lista[medio] > numeroabuscar)
         {
-            return binarySearch(arr, inicio, medio - 1, numeroabuscar);
+            return binarySearch(lista, izq, medio - 1, numeroabuscar);
         }
         else
         {
-            return binarySearch(arr, medio + 1, fin, numeroabuscar);
+            return binarySearch(lista, medio + 1, der, numeroabuscar);
         }
     }
     return -1;
@@ -23,17 +25,18 @@ static int binarySearch(int arr[], int inicio, int fin, int numeroabuscar)
 
 int main()
 {
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    int tamanio = sizeof(arr) / sizeof(arr[0]);
-    int numeroabuscar = 3;
-    int resultado = binarySearch(arr, 0, tamanio - 1, numeroabuscar);
+    int lista[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int tamanio = sizeof(lista) / sizeof(lista[0]);
+    int numeroabuscar;
+    cin >> numeroabuscar;
+    int resultado = binarySearch(lista, 0, tamanio - 1, numeroabuscar);
     if (resultado == -1)
     {
-        printf("elemento no presente");
+        cout << "Elemento no presente" << endl;
     }
     else
     {
-        printf("elemento encontrado en el indice: %d", resultado);
+        cout << "Elemento encontrado en el indice: " << resultado << endl;
     }
     return 0;
 }
