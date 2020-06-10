@@ -1,38 +1,47 @@
 #include <cstdlib>
 #include <bits/stdc++.h>
-
 using namespace std;
 
-int jumpSearch(int lista[], int x, int n) {
-    int salto = (int) floor(sqrt(n));
+int jumpSearch(int lista[], int x, int tamanio)
+{
+    int salto = (int)floor(sqrt(tamanio));
     int previo = 0;
-    while (lista[min(salto, n) - 1] < x) {
+    while (lista[min(salto, tamanio) - 1] < x)
+    {
         previo = salto;
-        salto = (int) salto + (int) floor(sqrt(n));
-        if (previo >= n) {
+        salto = (int)salto + (int)floor(sqrt(tamanio));
+        if (previo >= tamanio)
+        {
             return -1;
         }
     }
-    while (lista[previo] < x) {
+    while (lista[previo] < x)
+    {
         previo++;
-        if (previo == min(salto, n)) {
+        if (previo == min(salto, tamanio))
+        {
             return -1;
         }
     }
-    if (lista[previo] == x) {
+    if (lista[previo] == x)
+    {
         return previo;
     }
     return -1;
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
     int lista[] = {0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144};
     int numeroabuscar;
     cin >> numeroabuscar;
-    int resultado = jumpSearch(lista, numeroabuscar, sizeof (lista) / sizeof (lista[0]));
-    if (resultado == -1) {
+    int resultado = jumpSearch(lista, numeroabuscar, sizeof(lista) / sizeof(lista[0]));
+    if (resultado == -1)
+    {
         cout << "No encontrado" << endl;
-    } else {
+    }
+    else
+    {
         cout << "Encontrado en el indice " << resultado << endl;
     }
     return 0;
