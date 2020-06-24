@@ -14,7 +14,7 @@ int main()
         cin>>desde>>hasta;
         cin>>peso;
         G[desde][hasta]=peso;
-        G[hasta][desde]-peso;
+        G[hasta][desde]=peso;
     }
     for(int i=0;i<V;++i)
     {
