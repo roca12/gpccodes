@@ -4,9 +4,10 @@ using namespace std;
 static int G[MAX_V][MAX_V];
 int main()
 {
+    memset(G,0,sizeof G);
     int V,E;
     cin>>V>>E;
-    G[V][V];
+    memset(G,NULL,MAX_V);
     for(int i=0;i<E;++i)
         {
         int desde,hasta,peso;
