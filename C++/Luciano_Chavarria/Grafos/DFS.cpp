@@ -8,16 +8,20 @@ private:
     int V;
     vector<int> adj[];
 public:
-    Graph(int V,vector)
-    void addEdge(int v,int w){
-    void DFSUtil(int v,bool visited[]){
-    void DFS(int v){
-        bool visited[V];
-        DFSUtil(v,visited);
-};*/
+    Graph(int V,vector<int> []);
+    void addEdge(int v,int w);
+    void DFSUtil(int v,bool visited[]);
+    void DFS(int v);
+};
+Graph::Graph(int V_,vector<int>adj_[]){
+    std::vector<int>::iterator it;
+    V=V_;
+    adj[].insert(it+adj_.size(),adj_.begin(),adj_.end());
+}
+*/
+vector<int> adj[MAX_V];
 struct Graph{
     int V;
-    vector<int> adj[];
     void addEdge(int v,int w){
         adj[v].push_back(w);
         }
@@ -25,16 +29,19 @@ struct Graph{
         visited[v]=true;
         cout<<v<<" ";
         vector<int>::iterator it=adj[v].begin();
-        for(it=adj[v].begin();it!=adj[v].end();it++)
+       while(it!=adj[v].end()){
             if(!visited[*it]){
                 DFSUtil(*it,visited);
-        }
+            }
+       *it++;
+       }
     }
      void DFS(int v){
         bool visited[V];
         DFSUtil(v,visited);
     }
 };
+
 int main()
 {
     Graph gra={4};
