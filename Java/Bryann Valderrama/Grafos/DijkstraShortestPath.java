@@ -104,7 +104,7 @@ public class Main {
             destino = sc.nextInt();
             peso = sc.nextInt();
             ady.get(origen).add(new Caminos(destino, peso)); //Dirigido
-            ady.get(destino).add(new Caminos(destino, peso)); //No dirigido
+            ady.get(destino).add(new Caminos(origen, peso)); //No dirigido
         }
         System.out.println("Inserte el vertice inicial");
         inicial = sc.nextInt();
