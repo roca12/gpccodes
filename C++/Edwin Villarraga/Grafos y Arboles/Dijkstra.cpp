@@ -2,33 +2,38 @@
 #include<cstdlib>
 //---------------//
 #define MAX 10005
-#define INF 1<<30
+const int INF =1<<30;
 //---------------//
 using namespace std;
 struct Node{
     int destino,peso;
-    bool operator < (const Node &other) const{
-        if(peso>other.peso)return 1;
-        if(peso == other.peso) return 0;
-        return -1;
-    }
+    Node(int _destino, int _peso) : destino(_destino), peso(_peso) {}
+	Node() : destino(-1), peso(-1) {}
+};
+struct State{
+	int destino;
+	int peso;
+	State(int _destino, int _peso) : destino(_destino), peso(_peso) {}
+	bool operator <(const State &b) const{
+		return peso > b.peso;
+	}
 };
 vector <vector<Node> >ady(MAX);
 int distancia[MAX];
 bool visited[MAX];
-priority_queue<Node> Q;
+priority_queue<State> Q;
 int previo[MAX];
-void init(){
-    memset(distancia,MAX,sizeof distancia);
-    memset(visited,false,sizeof visited);
-    memset(previo,-1,sizeof previo);
+
+void init(int V){
+    for(int i=1;i<=V;i++){
+        distancia[i]=INF;
+    }
 }
-//Revisa cual es el camino mas corto
 void relajacion(int actual, int adyacente, int peso) {
         if (distancia[actual] + peso < distancia[adyacente]) {
             distancia[adyacente] = distancia[actual] + peso;
             previo[adyacente] = actual;
-            Q.push(Node{adyacente, distancia[adyacente]});
+            Q.push(State{adyacente, distancia[adyacente]});
         }
     }
  void print(int destino) {
@@ -38,13 +43,12 @@ void relajacion(int actual, int adyacente, int peso) {
         cout<<destino<<" ";
     }
 void dijkstra(int inicial,int V){
-    init();
-    Q.push(Node{inicial,0});
+    init(V);
+    Q.push(State{inicial,0});
     distancia[inicial]=0;
     int actual,adyacente,peso;
     while(!Q.empty()){
-        Node nodo=Q.top();
-        actual=nodo.destino;
+        actual=Q.top().destino;
         Q.pop();
         if(visited[actual]){continue;}
         visited[actual]=true;
