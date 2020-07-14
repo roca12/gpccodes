@@ -4,18 +4,20 @@ using namespace std;
 void computeLPSArray(string pat,int M,int lps[]){
     int len=0;
     int i=1;
+    lps[0]=0;
     while(i<M){
         if(pat[i]==pat[len]){
             len++;
             lps[i]=len;
             i++;
         }else{
-        if(len !=0){
-            len=lps[len-1];
-        }else{
-            lps[i]=len;
-            i++;
-        }
+            if(len !=0){
+                len=lps[len-1];
+            }
+            else{
+                lps[i]=len;
+                i++;
+            }
         }
     }
 }
@@ -28,8 +30,8 @@ void KMPsearch(string pat,string txt){
     int i=0;
     while(i<N){
         if(pat[j]==txt[i]){
-            i++;
             j++;
+            i++;
         }
         if(j==M){
             cout<<"Patron encontrado en el indice "<<(i-j)<<endl;
@@ -44,7 +46,7 @@ void KMPsearch(string pat,string txt){
     }
 }
 int main() {
-    string txt = "pvto el que lo lea";
-    string pat = "que";
+    string txt = "que hacen los hps, los malparidos, los mas gonorreas";
+    string pat = "los";
     KMPsearch(pat,txt);
 }
