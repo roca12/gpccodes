@@ -25,6 +25,7 @@ def KMPsearch(pat,txt):
 def computeLPSArray(pat,M,lps):
 	leng = 0
 	i = 1
+	lps[0] = 0
 	while i < M:
 		if pat[i] == pat[leng]:
 			leng+=1
