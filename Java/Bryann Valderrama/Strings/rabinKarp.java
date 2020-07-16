@@ -14,7 +14,7 @@ public class Main {
         }
         for (i = 0; i < M; i++) {
             p = (d * p + pat.charAt(i)) % q;
-            t = (d * t + pat.charAt(i)) % q;
+            t = (d * t + txt.charAt(i)) % q;
         }
         for (i = 0; i <= N - M; i++) {
             if (p == t) {
