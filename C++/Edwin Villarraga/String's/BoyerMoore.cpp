@@ -32,7 +32,7 @@ void boyerMoore(char txt[],char pat[]){
     }
 }
 int main() {
-        char txt[NO_OF_CHARS]="pvto el que lo lea";
-        char pat[NO_OF_CHARS]="le";
+        char txt[]="que hace aqui pvto";
+        char pat[]="ha";
         boyerMoore(txt, pat);
 }
