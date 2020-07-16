@@ -1,23 +1,27 @@
-#include <cstdlib>
 #include <bits/stdc++.h>
-#define NO_OF_CHARS 256
+#include <cstdlib>
 using namespace std;
+#define NO_OF_CHARS 256
 
-int maxim(int a, int b)
+int maximo(int a, int b)
 {
-    return a > b ? a : b;
+    return (a > b) ? a : b;
 }
-
+//string str
 void badCharHeuristic(char str[], int tam, int badchar[])
 {
     int i;
-    memset(badchar, -1, sizeof badchar);
+    for (i = 0; i < NO_OF_CHARS; i++)
+    {
+        badchar[i] = -1;
+    }
+
     for (i = 0; i < tam; i++)
     {
         badchar[(int)str[i]] = i;
     }
 }
-
+//string txt  string pat
 void boyerMoore(char txt[], char pat[])
 {
     int m = strlen(pat);
@@ -28,34 +32,35 @@ void boyerMoore(char txt[], char pat[])
     while (s <= (n - m))
     {
         int j = m - 1;
-        while (j <= 0 && pat[j] == txt[s + j])
+        while (j >= 0 && pat[j] == txt[s + j])
         {
             j--;
         }
-        if (j > 0)
+        if (j < 0)
         {
-            cout << "Patron encontrado en salto = " << s << endl;
-            s += (s + m < n) ? m - badchar[txt[s + m]] : 1;
+            cout << "Patron encontrado encontrado en salto " << s << endl;
+            s += (s + m < m) ? m - badchar[txt[s + m]] : 1;
         }
         else
         {
-            s += maxim(1, j - badchar[txt[s + j]]);
+            s += maximo(1, j - badchar[txt[s + j]]);
         }
     }
 }
 
 int main(int argc, char const *argv[])
 {
-    string txt1 = "lalalalalalalala";
+    string txt1 = "holacomoestasholahola";
     int n = txt1.length();
     char txt[n + 1];
     strcpy(txt, txt1.c_str());
-    string pat1 = "la";
+    string pat1 = "hola";
     int n2 = pat1.length();
     char pat[n2 + 1];
     strcpy(pat, pat1.c_str());
-    // char txt[] = "lalalalalalalala";
-    // char pat[] = "lala";
+    //Directamente con arreglo de char
+    // char txt[] = "holacomoestasholahola";
+    // char pat[] = "hola";
     boyerMoore(txt, pat);
     return 0;
 }
