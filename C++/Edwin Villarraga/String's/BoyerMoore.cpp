@@ -3,7 +3,7 @@
 using namespace std;
 const int NO_OF_CHARS=256;
 int MAX(int a,int b){
-    return a > b ? a : b;
+    return (a > b) ? a : b;
 }
 void badCharHeuristic(char str[],int siz,int badchar[]){
     int i;
@@ -20,10 +20,10 @@ void boyerMoore(char txt[],char pat[]){
     int s=0;
     while(s <=(n-m)){
         int j=m-1;
-        while(j <=0 && pat[j]==txt[s+j]){
+        while(j >=0 && pat[j]==txt[s+j]){
             j--;
         }
-        if(j>0){
+        if(j<0){
             cout<<"Patron encontrado encontrado en salto "<<s<<endl;
             s+=(s+m < m)? badchar[txt[s+m]] : 1 ;
         }else{
@@ -32,7 +32,7 @@ void boyerMoore(char txt[],char pat[]){
     }
 }
 int main() {
-        char txt[]="lalalalalalalala";
-        char pat[]="lala";
+        char txt[NO_OF_CHARS]="pvto el que lo lea";
+        char pat[NO_OF_CHARS]="le";
         boyerMoore(txt, pat);
 }
