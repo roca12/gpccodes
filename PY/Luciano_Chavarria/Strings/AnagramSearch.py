@@ -19,7 +19,7 @@ def anagramsSearch(pat,txt):
 
 	for i in range(M):
 		countP[ord(pat[i])]+=1
-		countTW[ord(pat[i])]+=1
+		countTW[ord(txt[i])]+=1
 	for i in range(M,N):
 		if compare(countP,countTW):
 			stdout.write(f"Encontrado en el indice {i-M} Anagrama {txt[i-M:i]}")
@@ -33,8 +33,8 @@ def anagramsSearch(pat,txt):
 
 
 def main():
-	txt = "anitalavalatina"
-	pat = "anita"
+	txt = "anitamelachupaenlatinaalreveslamlp"
+	pat = "la"
 	anagramsSearch(pat,txt)
 
 if __name__ == '__main__':
