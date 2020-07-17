@@ -8,11 +8,11 @@ public class Main {
         return a > b ? a : b;
     }
 
-    static void badCharHeuristic(char[] str, int size, int badchar[]) {
+    static void badCharHeuristic(char[] str, int size, int badChar[]) {
         int i;
-        Arrays.fill(badchar, -1);
+        Arrays.fill(badChar, -1);
         for (i = 0; i < size; i++) {
-            badchar[(int) str[i]] = i;
+            badChar[(int) str[i]] = i;
         }
     }
 
@@ -24,11 +24,11 @@ public class Main {
         int s = 0;
         while (s <= (n - m)) {
             int j = m - 1;
-            while (j <= 0 && pat[j] == txt[s + j]) {
+            while (j >= 0 && pat[j] == txt[s + j]) {
                 j--;
             }
-            if (j > 0) {
-                System.out.println("Patron encontrado en salto = " + s);
+            if (j < 0) {
+                System.out.println("Patron encontrado en el indice: " + s + " - " + (s + m - 1));
                 s += (s + m < n) ? m - badchar[txt[s + m]] : 1;
             } else {
                 s += max(1, j - badchar[txt[s + j]]);
@@ -37,8 +37,8 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        char txt[] = "lalalalalalalala".toCharArray();
-        char pat[] = "lala".toCharArray();
+        char txt[] = "holacomoestasholahola".toCharArray();
+        char pat[] = "hola".toCharArray();
         boyerMoore(txt, pat);
     }
 }
