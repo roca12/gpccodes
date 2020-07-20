@@ -1,40 +1,44 @@
+from sys import stdout
 NO_OF_CHARS = 256
 
-def maximo(a = int(), b = int()):
+
+def maximo(a, b):
     return a if a > b else b
 
-def badCharHeuristic(stri,size,badchar):
-    i = int()
-    badchar = [int for x in range(len(badchar))]
+
+def badCharHeuristic(string, size, badChar):
     for i in range(size):
-        badchar[ord(stri[i])] = i
+        badChar[ord(string[i])] = i
 
-def boyerMoore(txt,pat):
-    global NO_OF_CHARS
-    m = len(pat)
-    n = len(txt)
 
-    badchar = [2 for x in range(NO_OF_CHARS)]
-    badCharHeuristic(pat, m, badchar)
+def boyerMoore(txt, pat):
+    M = len(pat)
+    N = len(txt)
+    badChar = [-1 for x in range(NO_OF_CHARS)]
+    badCharHeuristic(pat, M, badChar)
     s = 0
-
-    while s<=(n-m):
-        j = m-1
-        while j <= 0 and pat[j] == txt[s + j]:
-            j-=1
-        if j > 0:
-            print("Patron encontrado en salto = " , s)
-            if (s + m < n):
-                c = txt[s + m]
-                k = ord(c)
-                s = s + m - badchar[k]
-            else:
-                s = s + 1
+    while s <= (N-M):
+        j = M-1
+        while j >= 0 and ord(pat[j]) == ord(txt[s+j]):
+            j -= 1
+        if j < 0:
+            stdout.write(
+                f'Patron ({pat}) encontrado en el indice {s} - {s+M-1}\n')
+            s += M - badChar[ord(txt[s+M])] if (s + M < N) else 1
         else:
-            c = txt[s + j]
-            k = ord(c)
-            s+=maximo(1,j - badchar[k])
+            s += maximo(1, j-badChar[ord(txt[s+j])])
 
-txt = [x for x in "lalalalalalalala"]
-pat = [x for x in "lala"]
+
+# String
+txt = 'holacomoestasholahola'
+
+# *----------- Una Palabra -----------*
+stdout.write('Una Palabra\n')
+pat = 'hola'
 boyerMoore(txt, pat)
+
+# *-------- Lista de Palabras --------*
+stdout.write('Lista de Palabras\n')
+pat = ['hola', 'la']
+for i in pat:
+    boyerMoore(txt, i)
