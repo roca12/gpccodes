@@ -58,19 +58,17 @@ public class Main {
                 C = i;
                 R = i + L[i];
             }
-            //Descomentar para imprimir tamaño del arreglo LPS
-            //printf("%d ", L[i]); 
+            //Imprimir tamaño del arreglo LPS
+            System.out.printf("%d ", L[i]);
         }
+        System.out.println("");
         start = (maxLPSCenterPosition - maxLPSLength) / 2;
         end = start + maxLPSLength - 1;
         System.out.println("LPS del string es " + String.copyValueOf(text) + ": ");
         for (i = start; i <= end; i++) {
             System.out.printf("%c", text[i]);
         }
-        System.out.println("");
-        for (int j = 0; j < L.length; j++) {
-            System.out.print(L[j] + " ");
-        }
+        System.out.println();
     }
 
     public static void main(String[] args) {
