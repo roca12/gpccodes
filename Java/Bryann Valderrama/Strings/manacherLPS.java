@@ -69,6 +69,7 @@ public class Main {
             System.out.printf("%c", text[i]);
         }
         System.out.println();
+        System.out.println("Inicio: " + start + " | Final: " + end);
     }
 
     public static void main(String[] args) {
