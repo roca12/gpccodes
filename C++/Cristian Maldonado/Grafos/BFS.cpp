@@ -41,7 +41,7 @@ int main (int argc, char *argv[]) {
 	g.addEdge(2, 0);
 	g.addEdge(2, 3);
 	g.addEdge(3, 3);
-	cout << "Sieguiendo su primera busqueda en anchura traverso (iniciando desde 2)"<<endl;
+	cout << "Siguiendo su primera busqueda en anchura traverso (iniciando desde 2)"<<endl;
 	g.BFS(2);
 	return 0;
 }
