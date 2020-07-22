@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+    #include<bits/stdc++.h>
 #include<cstdlib>
 //---------------//
 #define MAX 10005
@@ -61,7 +61,7 @@ void dijkstra(int inicial,int V){
         }
     }
     cout<<"distancia mas corta iniciada desde "<<inicial<<endl;
-    for(int i=0;i<=V;i++){
+    for(int i=1;i<=V;i++){
         cout<<"vertice "<<i<<" distancia mas corta = "<<distancia[i]<<endl;
     }
     cout<<"impresion del camino mas corto"<<endl;
@@ -71,6 +71,7 @@ void dijkstra(int inicial,int V){
     cout<<endl;
 }
 int main() {
+    memset(previo,-1,sizeof previo);
     int V,E,origen,destino,peso,inicial;
     cin>>V>>E;
     for(int i=0;i<E;i++){
