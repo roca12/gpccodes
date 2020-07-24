@@ -1,76 +1,101 @@
-#include<bits/stdc++.h>
-#include<cstdlib>
-#define MAX 10005
-#define FAST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(0);cout<<setprecision(25);
+#include <bits/stdc++.h>
+//-----------//
 using namespace std;
-
+//-----------//
 typedef long long int lli;
-const int INF =1<<30;
 
-struct Node{
-    lli destino,peso;
-    Node(lli _destino, lli _peso) : destino(_destino), peso(_peso) {}
-	Node() : destino(-1), peso(-1) {}
-};
-struct State{
-	lli destino;
-	lli peso;
-	State(lli _destino, lli _peso) : destino(_destino), peso(_peso) {}
-	bool operator <(const State &b) const{
-		return peso > b.peso;
-	}
-};
-vector <vector<Node> >ady(MAX);
-lli distancia[MAX];
-bool visited[MAX];
-priority_queue<State> Q;
-lli previo[MAX];
+const int INF = 1 << 30;
+const int MAX = 100005;
+lli tiempoRestante;
+lli inicial;
+lli destinoFinal;
+lli V;
 
-void init(lli V){
-    for(lli i=1;i<=V;i++){
-        distancia[i]=INF;
-    }
-}
-void relajacion(lli actual, lli adyacente, lli peso) {
-        if (distancia[actual] + peso < distancia[adyacente]) {
-            distancia[adyacente] = distancia[actual] + peso;
-            previo[adyacente] = actual;
-            Q.push(State{adyacente, distancia[adyacente]});
+struct Camino {
+    lli destino, peso;
+    lli operator < (const Camino &otro)const{
+        if(peso > otro.peso){
+            return 1;
+        }
+        if(peso == otro.destino){
+            return 0;
         }
     }
+};
 
-void dijkstra(lli inicial,lli V, lli destinoFinal, lli tiempoRestante){
-    init(V);
-    Q.push(State{inicial,0});
-    distancia[inicial]=0;
-    int actual,adyacente,peso;
+vector<vector<Camino>> ady;
+lli distancia[MAX];
+lli visitado [MAX];
+priority_queue <Camino> Q;
+lli previo[MAX];
+
+void init(){
+    vector<Camino> ayuda;
+    for(int i = 1; i <= V; i++){
+        ady.push_back(ayuda);
+        distancia[i] = INF;
+        visitado[i] = false;
+        previo[i] = -1;
+    }
+}
+
+void relajacion(lli actual, lli adyacente, lli peso){
+    if(distancia[actual] + peso < distancia[adyacente]){
+        distancia[adyacente] = distancia[actual] + peso;
+        previo[adyacente] = actual;
+        Camino c;
+        c.destino = adyacente;
+        c.peso = distancia[adyacente];
+        Q.push(c);
+    }
+}
+
+void dijkstra(lli inicial){
+    Camino n;
+    n.destino = inicial;
+    n.peso = 0;
+    Q.push(n);
+    distancia[inicial] = 0;
+    lli actual, adyacente, peso;
     while(!Q.empty()){
-        actual=Q.top().destino;
+        actual = Q.top().destino;
         Q.pop();
-        if(visited[actual]){continue;}
-        visited[actual]=true;
-        for(lli i=0;i<ady[actual].size();i++){
-            adyacente=ady[actual][i].destino;
-            peso=ady[actual][i].peso;
-            if(!visited[adyacente]){
-                relajacion(actual,adyacente,peso);
+        if(visitado[actual]){
+            continue;
+        }
+        visitado[actual] = true;
+        for(lli i = 0 ; i < ady[actual].size(); i++){
+            adyacente = ady[actual][i].destino;
+            peso = ady[actual][i].peso;
+            if(!visitado[adyacente]){
+                relajacion(actual, adyacente, peso);
             }
         }
     }
     if(distancia[destinoFinal] <= tiempoRestante){
-        cout << "alive "<<distancia[destinoFinal]<<endl;
+        printf("alive %lld\n", distancia[destinoFinal]);
     }else if(distancia[destinoFinal] == INF || distancia[destinoFinal] > tiempoRestante){
-        cout << "died"<<endl;
+        printf("died\n");
     }
-
+    ady.clear();
 }
-int main() {
-    lli V,E,origen,destino,peso,inicial, tiempoRestante, destinoFinal;
-    cin>>V>>tiempoRestante>>E>>inicial>>destinoFinal;
-    for(int i=0;i<E;i++){
-        cin>>origen>>destino>>peso;
-        ady[origen].push_back(Node{destino,peso});//dirigido
-        ady[destino].push_back(Node{origen,peso});// no dirigido
+
+int main()
+{
+    lli E, origen, destino, peso;
+    scanf("%lld %lld %lld %lld %lld", &V, &tiempoRestante, &E, &inicial, &destinoFinal);
+    init();
+    for(lli i = 0; i < E; i++){
+        scanf("%lld %lld %lld", &origen , &destino, &peso);
+        Camino h;
+        h.destino = destino;
+        h.peso = peso;
+        ady[origen].push_back(h);
+        Camino f;
+        f.destino = origen;
+        f.peso = peso;
+        ady[destino].push_back(f);
     }
-    dijkstra(inicial,V, destinoFinal, tiempoRestante);
+    dijkstra(inicial);
+    return 0;
 }
