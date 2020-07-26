@@ -4,8 +4,9 @@ using namespace std;
 vector<vector<int> >adj(MAX);
 int in[MAX];
 void clean(){
-    adj.clear();
-    adj.erase(adj.begin(),adj.begin()+adj.size());
+    for(int i=0;i<MAX;i++){
+        adj[i].clear();
+    }
     memset(in,0,sizeof in);
 }
 struct Graph{
@@ -81,7 +82,6 @@ struct Graph{
 
 };
 int main() {
-    /*
     Graph g1;
     g1.init();
     g1.V=5;
@@ -91,6 +91,7 @@ int main() {
     g1.addEdge(0, 3);
     g1.addEdge(3, 4);
     g1.test();
+    clean();
     Graph g2;
     g2.init();
     g2.V=5;
@@ -101,7 +102,7 @@ int main() {
     g2.addEdge(3, 4);
     g2.addEdge(4, 0);
     g2.test();
-    */
+    clean();
     Graph g3;
     g3.init();
     g3.V=5;
@@ -112,7 +113,7 @@ int main() {
     g3.addEdge(3, 4);
     g3.addEdge(1, 3);
     g3.test();
-    /*
+    clean();
     Graph g4;
     g4.init();
     g4.V=3;
@@ -124,6 +125,5 @@ int main() {
     g5.init();
     g5.V=3;
     g5.test();
-    */
-
+    clean();
 }
