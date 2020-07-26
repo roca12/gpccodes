@@ -35,9 +35,9 @@ int main (int argc, char *argv[]) {
     }
     int size = sizeof(G)/sizeof(G[0]);
     for(int i = 0; i < size; i++){
-        cout << i <<"-> ";
+        cout << i <<"= ";
         for(Edge e:G[i].adj){
-            cout <<e.to<<" "<<e.w<<"|";
+            cout <<"->"<<e.to;
         }
         cout<<""<<endl;
     }
