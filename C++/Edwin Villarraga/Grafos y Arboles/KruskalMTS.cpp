@@ -2,6 +2,12 @@
 #define MAX 1005
 using namespace std;
 int padre[MAX];
+struct Edge{
+  int origen,destino,peso;
+  bool operator<(const Edge &t){
+      return peso < t.peso;
+      }
+};
 //set de nodos para indicar cuales son sus padre e hijos
 void makeSet(int n){
     for(int i=0;i<=n;i++){
@@ -20,21 +26,16 @@ bool sameComponent(int x,int y){
     }
     return false;
 }
-struct Edge{
-  int origen,destino,peso;
-};
 Edge aristas[MAX];
 Edge MST[MAX];
-bool compare(const Edge &t,const Edge &t1){
-    return t.peso-t1.peso;
-}
+
 vector<Edge>vec;
 void KruskalMST(int V,int E){
     int origen,destino,peso;
     int total=0;
     int numAristas=0;
     makeSet(V);
-    sort(vec.begin(),vec.end(),compare);
+    sort(vec.begin(),vec.end());
     for(int i=0;i<E;i++){
         origen=vec[i].origen;
         destino=vec[i].destino;
