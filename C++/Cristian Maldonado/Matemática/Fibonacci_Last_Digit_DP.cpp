@@ -1,5 +1,5 @@
 /*Tener en cuenta que este algoritmo no soporta
-numeros mayores a 93*/
+numeros mayores a 93 para C++*/
 #include <iostream>
 using namespace std;
 
