@@ -1,14 +1,16 @@
 from sys import stdout
+wr = stdout.write
 
-def printSubsets(sett):
-    n = len(sett)
+
+def printSubsets(sset):
+    n = len(sset)
     for i in range(1<<n):
-        stdout.write("{")
+        wr('{ ')
         for j in range(n):
-            if (n&(1<<j))>0:
-                stdout.write(f"{sett[j]} ")
-    stdout.write("]\n")
-
-
-conjunto = ["a","b","c"]
+            if (i & (1<<j)) > 0:
+                wr(f'{sset[j]} ')
+        wr('}\n')
+        
+        
+conjunto = ['a','b','c']
 printSubsets(conjunto)
