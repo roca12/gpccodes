@@ -1,13 +1,17 @@
 from sys import stdout
 wr = stdout.write
 
+cont = 0
+
 
 def combUtil(arr, data, start, end, index, r):
+    global cont
     if index == r:
         for j in range(r):
             wr(f'{data[j]} ')
         wr('\n')
         return
+    cont += 1
     i = start
     while i <= end and end - i + 1 >= r - index:
         data[index] = arr[i]
@@ -24,3 +28,4 @@ arrint = [1, 2, 3, 4, 5]
 r = 3
 n = len(arrint)
 printComb(arrint, n, r)
+wr(str(cont))
