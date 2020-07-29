@@ -1,2 +1,2 @@
 # gpccodes
-Ejercicios de programación competitiva resueltos por los diferentes competidores de la universidad ECCI
+Algoritmos y ejercicios resueltos de programación competitiva que han sido realizados por los diferentes competidores de la Universidad ECCI
