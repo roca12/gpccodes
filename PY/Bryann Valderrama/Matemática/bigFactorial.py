@@ -22,7 +22,7 @@ def factorial(n):
     for i in range(2, n+1):
         res_size = multilply(i, res, res_size)
     wr(f'Factorial de {n} es: \n')
-    for i in range(res_size-1, 0, -1):
+    for i in range(res_size-1, -1, -1):
         wr(f'{res[i]}')
 
 
