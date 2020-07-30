@@ -17,6 +17,7 @@ int multiply(int x,int res[],int res_size){
 }
 void factorial(int n){
     int res[500];
+    memset(res,0,sizeof res);
     res[0]=1;
     int res_size=1;
     for(int i=2;i<=n;i++){
