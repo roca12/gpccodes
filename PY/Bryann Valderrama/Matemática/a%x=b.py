@@ -18,7 +18,7 @@ def modEquation(a, b):
                 cont += 1
                 wr(f'{n//i}\n')
             if i > b:
-                con += 1
+                cont += 1
                 wr(f'{i}\n')
     if y*y == n and y > b:
         cont -= 1
