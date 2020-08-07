@@ -120,7 +120,7 @@ public class ArticulationBridges {
     // Driver method 
     public static void main(String args[]) {
         // Create graphs given in above diagrams 
-        System.out.println("Articulation points in first graph ");
+        System.out.println("Puntos de articulación en el grafo ");
         Graph g1 = new Graph(5);
         g1.addEdge(1, 0);
         g1.addEdge(0, 2);
@@ -130,7 +130,7 @@ public class ArticulationBridges {
         g1.AP();
         System.out.println();
 
-        System.out.println("Articulation points in Second graph");
+        System.out.println("Puntos de articulación en el grafo");
         Graph g2 = new Graph(4);
         g2.addEdge(0, 1);
         g2.addEdge(1, 2);
@@ -138,7 +138,7 @@ public class ArticulationBridges {
         g2.AP();
         System.out.println();
 
-        System.out.println("Articulation points in Third graph ");
+        System.out.println("Puntos de articulación en el grafo ");
         Graph g3 = new Graph(7);
         g3.addEdge(0, 1);
         g3.addEdge(1, 2);
