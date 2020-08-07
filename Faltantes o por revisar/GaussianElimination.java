@@ -70,7 +70,7 @@ public class GaussianElimination {
             for (int j = 0; j < n; j++) {
                 System.out.print(matrix[i][j] + " ");
             }
-            System.out.print("= "+result[i]);
+            System.out.print("= " + result[i]);
             System.out.println("");
         }
         ArrayList<Double> res = gauss();

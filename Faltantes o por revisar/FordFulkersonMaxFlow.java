@@ -1,7 +1,7 @@
+// Java program for implementation of Ford Fulkerson algorithm 
 
 import java.util.LinkedList;
 
-// Java program for implementation of Ford Fulkerson algorithm 
 public class FordFulkersonMaxFlow {
 
     static final int V = 6; //Number of vertices in graph 
@@ -9,7 +9,7 @@ public class FordFulkersonMaxFlow {
     /* Returns true if there is a path from source 's' to sink 
 	't' in residual graph. Also fills parent[] to store the 
 	path */
-   static  boolean bfs(int rGraph[][], int s, int t, int parent[]) {
+    static boolean bfs(int rGraph[][], int s, int t, int parent[]) {
         // Create a visited array and mark all vertices as not 
         // visited 
         boolean visited[] = new boolean[V];
@@ -43,7 +43,7 @@ public class FordFulkersonMaxFlow {
     }
 
     // Returns tne maximum flow from s to t in the given graph 
-   static int fordFulkerson(int graph[][], int s, int t) {
+    static int fordFulkerson(int graph[][], int s, int t) {
         int u, v;
 
         // Create a residual graph and fill the residual graph 
