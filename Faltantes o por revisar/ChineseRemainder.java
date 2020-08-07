@@ -1,56 +1,79 @@
-//Encuentra un x tal que para cada i : x es congruente con A_i mod M_i
-//Devuelve un vector con dos posiciones donde [0] = x  &&  [1] = lcm 
-//donde x es la solución con modulo lcm (lcm = LCM(M_0, M_1, ...)). 
-//Dado un k : x + k*lcm es solución tambien.
-//Si la solución no existe o la entrada no es válida devuelve {-1, -1}
-
-import java.util.ArrayList;
+// A Java program to demonstrate 
+// working of Chinise remainder 
+// Theorem 
 
 public class ChineseRemainder {
 
-    static int[] crt(ArrayList<Integer> A, ArrayList<Integer> M) {
-        int n = A.size(), ans = A.get(0), lcm = M.get(0);
-        for (int i = 1; i < n; i++) {
-            int d = euclid(lcm, M.get(i));
-            if (((A.get(i) - ans) % d) == 1) {
-                int y[] = {-1, -1};
-                return y;
-            }
-            int mod = lcm / d * M.get(i);
-            ans = (ans + x * (A.get(i) - ans) / d % (M.get(i) / d) * lcm) % mod;
-            if (ans < 0) {
-                ans += mod;
-            }
-            lcm = mod;
-        }
-        int y[] = {ans, lcm};
-        return y;
-    }
-    static int x, y;
+    // Returns modulo inverse of a 
+    // with respect to m using extended 
+    // Euclid Algorithm. Refer below post for details: 
+    // https://www.geeksforgeeks.org/multiplicative-inverse-under-modulo-m/ 
+    static int inv(int a, int m) {
+        int m0 = m, t, q;
+        int x0 = 0, x1 = 1;
 
-    static int euclid(int a, int b) {
-        if (b == 0) {
-            x = 1;
-            y = 0;
-            return a;
+        if (m == 1) {
+            return 0;
         }
-        int d = euclid(b, a % b);
-        int temp = x;
-        x = y;
-        y = temp - ((a / b) * y);
-        return d;
+        // Apply extended Euclid Algorithm 
+        while (a > 1) {
+            // q is quotient 
+            q = a / m;
+
+            t = m;
+
+            // m is remainder now, process 
+            // same as euclid's algo 
+            m = a % m;
+            a = t;
+
+            t = x0;
+
+            x0 = x1 - q * x0;
+
+            x1 = t;
+        }
+        // Make x1 positive 
+        if (x1 < 0) {
+            x1 += m0;
+        }
+
+        return x1;
     }
 
-    public static void main(String[] args) {
-        ArrayList<Integer> num = new ArrayList<>();
-        num.add(5);
-        num.add(7);
-        ArrayList<Integer> rem = new ArrayList<>();
-        rem.add(1);
-        rem.add(3);
-        int[] res = crt(num, rem);
-        for (int re : res) {
-            System.out.print(re+ " ");
+    // k is size of num[] and rem[]. 
+    // Returns the smallest number 
+    // x such that: 
+    // x % num[0] = rem[0], 
+    // x % num[1] = rem[1], 
+    // .................. 
+    // x % num[k-2] = rem[k-1] 
+    // Assumption: Numbers in num[] are pairwise 
+    // coprime (gcd for every pair is 1) 
+    static int findMinX(int num[], int rem[], int k) {
+        // Compute product of all numbers 
+        int prod = 1;
+        for (int i = 0; i < k; i++) {
+            prod *= num[i];
         }
+
+        // Initialize result 
+        int result = 0;
+
+        // Apply above formula 
+        for (int i = 0; i < k; i++) {
+            int pp = prod / num[i];
+            result += rem[i] * inv(pp, num[i]) * pp;
+        }
+
+        return result % prod;
+    }
+
+    // Driver method 
+    public static void main(String args[]) {
+        int num[] = {3, 4, 5};
+        int rem[] = {2, 3, 1};
+        int k = num.length;
+        System.out.println("x is " + findMinX(num, rem, k));
     }
 }

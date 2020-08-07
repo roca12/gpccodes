@@ -51,7 +51,7 @@ def solve(n):
         return 0
     print("house cannot be cleaned.") 
   
-# Driver function 
+
 n = 3
 s = "" 
 s += ".**"
@@ -67,5 +67,3 @@ for i in range(n):
         k += 1
   
 solve(n) 
-  
-# This code is contributed by shubhamsingh10 
