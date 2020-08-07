@@ -5,8 +5,6 @@
 //si dos elementos se encuentran en un mismo 
 //conjunto y unir dos conjuntos disyuntos en un uno.
 
-// A Java program to implement Disjoint Set Data 
-// Structure. 
 public class DisjointSet {
 
     static class DisjointUnionSets {

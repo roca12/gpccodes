@@ -18,7 +18,7 @@ public class FenwickTree {
     // assumes that the array is preprocessed and 
     // partial sums of array elements are stored 
     // in BITree[]. 
-    int getSum(int index) {
+    static int getSum(int index) {
         int sum = 0; // Iniialize result 
 
         // index in BITree[] is 1 more than 
@@ -61,7 +61,7 @@ public class FenwickTree {
 
     /* Function to construct fenwick tree 
 	from given array.*/
-    void constructBITree(int arr[], int n) {
+    static void constructBITree(int arr[], int n) {
         // Initialize BITree[] as 0 
         for (int i = 1; i <= n; i++) {
             BITree[i] = 0;
@@ -79,22 +79,16 @@ public class FenwickTree {
         int freq[] = {2, 1, 1, 3, 2, 3,
             4, 5, 6, 7, 8, 9};
         int n = freq.length;
-        FenwickTree tree = new FenwickTree();
-
         // Build fenwick tree from given array 
-        tree.constructBITree(freq, n);
-
+        constructBITree(freq, n);
         System.out.println("Sum of elements in arr[0..5]"
-                + " is " + tree.getSum(5));
-
+                + " is " + getSum(5));
         // Let use test the update operation 
         freq[3] += 6;
-
         // Update BIT for above change in arr[] 
         updateBIT(n, 3, 6);
-
         // Find sum after the value is updated 
         System.out.println("Sum of elements in arr[0..5]"
-                + " after update is " + tree.getSum(5));
+                + " after update is " + getSum(5));
     }
 }
