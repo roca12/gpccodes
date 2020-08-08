@@ -1,7 +1,6 @@
 // A Java Program to generate test cases for 
 // matrix filled with random numbers 
 
-
 import java.io.IOException;
 import java.util.Random;
 
@@ -30,7 +29,7 @@ public class TestCasesGeneratingRandomMatrix {
     static int maxRow = 10;
 
     // Driver Code 
-    public static void main(String[] args) throws IOException {
+    static void randomArray() {
         Random random = new Random();
 
         for (int i = 0; i < RUN; i++) {
@@ -53,5 +52,9 @@ public class TestCasesGeneratingRandomMatrix {
             }
             System.out.println();
         }
+    }
+
+    public static void main(String[] args) throws IOException {
+        randomArray();
     }
 }

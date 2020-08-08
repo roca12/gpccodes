@@ -1,47 +1,45 @@
 // A Java Program to generate test cases 
 // for array filled with random numbers 
-import java.io.*; 
-import java.util.Random; 
 
-public class TestCasesGeneratingRandomArrays 
-{ 
+import java.io.*;
+import java.util.Random;
 
-	// the number of runs 
-	// for the test data generated 
-	static int RUN = 5; 
+public class TestCasesGeneratingRandomArrays {
 
-	// miminum range of random numbers 
-	static int lowerBound = 0; 
 
-	// maximum range of random numbers 
-	static int upperBound = 1000; 
+    static int RUN = 5;
 
-	// miminum size of reqd array 
-	static int minSize = 10; 
+    // miminum range of random numbers 
+    static int lowerBound = 0;
 
-	// maximum size of reqd array 
-	static int maxSize = 20; 
+    // maximum range of random numbers 
+    static int upperBound = 1000;
 
-	// Driver Code 
-	public static void main (String[] args) throws IOException 
-	{ 
-		Random random = new Random(); 
+    // miminum size of reqd array 
+    static int minSize = 10;
 
-		for(int i = 0; i < RUN; i++) 
-		{ 
-			int size = random.nextInt(maxSize - minSize) + 
-												minSize; 
-			int[] array = new int[size]; 
+    // maximum size of reqd array 
+    static int maxSize = 20;
 
-			System.out.println(size); 
+    static void randomArray() {
+        Random random = new Random();
+        for (int i = 0; i < RUN; i++) {
+            int size = random.nextInt(maxSize - minSize)
+                    + minSize;
+            int[] array = new int[size];
 
-			for(int j = 0; j < size; j++) 
-			{ 
-				int a = random.nextInt(upperBound - lowerBound) + 
-													lowerBound; 
-				System.out.print(a + " "); 
-			} 
-			System.out.println(); 
-		} 
-	} 
-} 
+            System.out.println(size);
+
+            for (int j = 0; j < size; j++) {
+                int a = random.nextInt(upperBound - lowerBound)
+                        + lowerBound;
+                System.out.print(a + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        randomArray();
+    }
+}
