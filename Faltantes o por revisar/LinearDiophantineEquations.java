@@ -17,17 +17,13 @@ public class LinearDiophantineEquations {
         return (c % gcd(a, b) == 0);
     }
 
-    // Driver function 
     public static void main(String[] args) {
-        // First example 
         int a = 3, b = 6, c = 9;
         if (isPossible(a, b, c)) {
             System.out.println("Possible");
         } else {
             System.out.println("Not Possible");
         }
-
-        // Second example 
         a = 3;
         b = 6;
         c = 8;
@@ -36,8 +32,6 @@ public class LinearDiophantineEquations {
         } else {
             System.out.println("Not Possible");
         }
-
-        // Third example 
         a = 2;
         b = 5;
         c = 1;
@@ -47,6 +41,4 @@ public class LinearDiophantineEquations {
             System.out.println("Not Possible");
         }
     }
-} 
-
-
+}

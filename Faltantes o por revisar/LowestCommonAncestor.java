@@ -1,11 +1,5 @@
 
 import java.util.ArrayList;
-import java.util.Arrays;
-//Dados los nodos u y v de un arbol determina 
-//cual es el ancestro comun mas bajo entre u y v.
-//*Tambien puede determinar la arista de peso 
-//maximo entre los nodos u y v (Para esto quitar los "//")
-//SE DEBE EJECUTAR EL METODO build() ANTES DE UTILIZARSE
 
 public class LowestCommonAncestor {
 
@@ -101,6 +95,5 @@ public class LowestCommonAncestor {
         g[3].add(4);
         build();
         System.out.println(lca(2,1));
-
     }
 }

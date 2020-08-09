@@ -16,15 +16,16 @@ public class TestCasesGeneratingRandomNumbers {
     // maximum range of random numbers 
     static int upperBound = 1000;
 
-    // Driver Code 
-    public static void main(String[] args) throws IOException {
+    static void randomNumbers() {
         Random random = new Random();
-
         for (int i = 0; i < requiredNumbers; i++) {
             int a = random.nextInt(upperBound - lowerBound)
                     + lowerBound;
             System.out.println(a);
         }
     }
-} 
 
+    public static void main(String[] args) throws IOException {
+        randomNumbers();
+    }
+}
