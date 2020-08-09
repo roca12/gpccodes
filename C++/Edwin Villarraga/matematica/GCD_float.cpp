@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 #include<cstdlib>
+//---------------//
 using namespace std;
 double GCD(double a,double b){
     if(a<b){
