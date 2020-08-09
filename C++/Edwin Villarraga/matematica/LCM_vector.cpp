@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 #include<cstdlib>
+//---------------//
 using namespace std;
 long lcm_array(int arr[],int len){
     long lcm=1;
