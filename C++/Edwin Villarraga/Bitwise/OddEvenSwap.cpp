@@ -21,4 +21,3 @@ int main(){
    cout<<swapBits(x)<<"->"<<toBinary(y)<<endl;
 
 }
-
