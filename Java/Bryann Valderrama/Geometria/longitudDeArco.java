@@ -3,7 +3,7 @@ import java.util.;
 public class Main {
 
     static double ArcLength(double diametro, double angulo) {
-        double pi= Math.PI;
+        double pi= 22/7;
         double arc;
         if(angulo>=360) {
             System.out.println("El angulo no puede ser formado");
