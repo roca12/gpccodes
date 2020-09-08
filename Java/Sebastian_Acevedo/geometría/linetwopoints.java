@@ -1,6 +1,3 @@
-import java.util.Scanner;
-
-import jdk.internal.util.xml.impl.Pair;
 
 public class main {
 //linetwopoints
