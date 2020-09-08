@@ -1,8 +1,3 @@
-package programacion;
-import java.util.Scanner;
-
-import jdk.internal.util.xml.impl.Pair;
-
 public class main {
 //Arranged_Coin_Triangle
 	public static void main(String[] args) {		
@@ -25,4 +20,5 @@ public class main {
 		}
 		return x;
 	}
+
 }
