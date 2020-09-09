@@ -6,7 +6,6 @@ float squareRoot(float);
 
 int main() {	
 	int N=12;
-	//System.out.println(findMaxH(N));
 	cout<<findMaxH(N)<<endl;
 }
 
