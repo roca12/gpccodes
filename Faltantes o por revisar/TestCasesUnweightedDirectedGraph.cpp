@@ -1,77 +1,38 @@
-// A C++ Program to generate test cases for 
-// an unweighted directed graph 
+
 #include<bits/stdc++.h> 
-using namespace std; 
+using namespace std;
 
-// Define the number of runs for the test data 
-// generated 
 #define RUN 5 
-
-// Define the maximum number of vertices of the graph 
 #define MAX_VERTICES 20 
+#define MAX_EDGES 20 
 
-// Define the maximum number of edges 
-#define MAX_EDGES 200 
-
-int main() 
-{ 
-	set<pair<int, int>> container; 
-	set<pair<int, int>>::iterator it; 
-	
-	// Uncomment the below line to store 
-	// the test data in a file 
-	// freopen ("Test_Cases_Directed_Unweighted_Graph.in", "w", stdout); 
-	
-	//For random values every time 
-	srand(time(NULL)); 
-	
-	int NUM; // Number of Vertices 
-	int NUMEDGE; // Number of Edges 
-	
-	for (int i=1; i<=RUN; i++) 
-	{ 
-		NUM = 1 + rand() % MAX_VERTICES; 
-	
-		// Define the maximum number of edges of the graph 
-		// Since the most dense graph can have N*(N-1)/2 edges 
-		// where N = nnumber of vertices in the graph 
-		NUMEDGE = 1 + rand() % MAX_EDGES; 
-		
-		while (NUMEDGE > NUM*(NUM-1)/2) 
-				NUMEDGE = 1 + rand() % MAX_EDGES;		 
-		
-		// First print the number of vertices and edges 
-		printf("%d %d\n", NUM, NUMEDGE); 
-		
-		// Then print the edges of the form (a b) 
-		// where 'a' is connected to 'b' 
-		for (int j=1; j<=NUMEDGE; j++) 
-		{ 
-			int a = 1 + rand() % NUM; 
-			int b = 1 + rand() % NUM; 
-			pair<int, int> p = make_pair(a, b); 
-			
-			// Search for a random "new" edge everytime 
-			// Note - In a tree the edge (a, b) is same 
-			// as the edge (b, a) 
-			while (container.find(p) != container.end()) 
-			{ 
-				a = 1 + rand() % NUM; 
-				b = 1 + rand() % NUM; 
-				p = make_pair(a, b); 
-			} 
-			container.insert(p); 
-		} 
-			
-		for (it=container.begin(); it!=container.end(); ++it) 
-			printf("%d %d\n", it->first, it->second); 
-			
-		container.clear(); 
-		printf("\n");			 
-	
-	} 
-	// Uncomment the below line to store 
-	// the test data in a file 
-	// fclose(stdout); 
-	return(0); 
-} 
+int main() {
+    set<pair<int, int>> container;
+    srand(time(NULL));
+    int VERTICES; 
+    int NUMEDGE; 
+    for (int i = 1; i <= RUN; i++) {
+        VERTICES = 1 + rand() % MAX_VERTICES;
+        NUMEDGE = 1 + rand() % MAX_EDGES;
+        while (NUMEDGE > VERTICES * (VERTICES - 1) / 2)
+            NUMEDGE = 1 + rand() % MAX_EDGES;
+        printf("%d %d\n", VERTICES, NUMEDGE);
+        for (int j = 1; j <= NUMEDGE; j++) {
+            int a = 1 + rand() % VERTICES;
+            int b = 1 + rand() % VERTICES;
+            pair<int, int> p = make_pair(a, b);
+            while (container.find(p) != container.end()) {
+                a = 1 + rand() % VERTICES;
+                b = 1 + rand() % VERTICES;
+                p = make_pair(a, b);
+            }
+            container.insert(p);
+        }
+        for (pair<int,int> p : container){
+            printf("%d %d\n", p.first-1, p.second-1);
+        }
+        container.clear();
+        printf("\n");
+    }
+    return (0);
+}
