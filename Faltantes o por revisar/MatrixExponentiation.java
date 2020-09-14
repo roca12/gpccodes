@@ -4,8 +4,6 @@
 // Base Cases : 
 // F(0) = 0, F(1) = 1, F(2) = 1 
 
-import java.io.*;
-
 public class MatrixExponentiation {
 
     // A utility function to multiply two 
@@ -42,22 +40,17 @@ public class MatrixExponentiation {
     static int power(int F[][], int n) {
         int M[][] = {{1, 1, 1}, {1, 0, 0},
         {0, 1, 0}};
-
         // Multiply it with initial values 
         // i.e with F(0) = 0, F(1) = 1, 
         // F(2) = 1 
         if (n == 1) {
             return F[0][0] + F[0][1];
         }
-
         power(F, n / 2);
-
         multiply(F, F);
-
         if (n % 2 != 0) {
             multiply(F, M);
         }
-
         // Multiply it with initial values 
         // i.e with F(0) = 0, F(1) = 1, 
         // F(2) = 1 
@@ -79,10 +72,7 @@ public class MatrixExponentiation {
 
     // Driver code 
     public static void main(String[] args) {
-
         int n = 5;
-
-        System.out.println("F(5) is "
-                + findNthTerm(n));
+        System.out.println("F(5) is " + findNthTerm(n));
     }
 }

@@ -47,5 +47,4 @@ public class MaximumSumIncreasingSubsequenceFromPrefix {
         System.out.println(
                 pre_compute(a, n, index, k));
     }
-} 
-
+}

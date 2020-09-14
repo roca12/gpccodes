@@ -3,7 +3,7 @@
 
 public class MillerRabin {
 
-    public static boolean isPrime(long p) {
+     static boolean isPrime(long p) {
         if (p < 2 || (p != 2 && p % 2 == 0)) {
             return false;
         }
