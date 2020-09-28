@@ -1,3 +1,4 @@
+
 import java.util.Arrays;
 
 public class Busquedas2 {
@@ -5,7 +6,7 @@ public class Busquedas2 {
 	
 	static int expSearch(int arr[], int n, int x) {
 		if (arr[0] == x) {
-			return arr[0];
+			return 0;
 		}
 		
 		int i = 1;
@@ -18,7 +19,7 @@ public class Busquedas2 {
 
 	public static void main(String[] args) {
 		int arr[] = {2,3,4,10,40};
-		int x = 10;
+		int x = 2;
 		int result = expSearch(arr, arr.length, x);
 		if (result < 0) {
 			System.out.println("No se encontro");
