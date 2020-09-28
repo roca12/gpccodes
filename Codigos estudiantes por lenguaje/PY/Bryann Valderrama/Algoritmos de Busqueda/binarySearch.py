@@ -3,8 +3,6 @@
    - Divide repetidamente la lista a la mitad hasta encontrar o no el objetivo.
    - La lista debe estar ordenada.
    - Complejidad Tiempo: O(log n).
-
-
 '''
 
 
