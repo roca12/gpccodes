@@ -2,6 +2,9 @@
 #include <cstdlib>
 using namespace std;
 static int fibonacciSearch(int arr[],int x,int n){
+	 if(x>arr[n-1]){
+        	return -1;
+   	 }
 	int fibMMm2=0;
 	int fibMMm1=1;
 	int fibM=fibMMm2+fibMMm1;
