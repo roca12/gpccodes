@@ -1,19 +1,33 @@
-def findPair(lista, x):
-    tamanio = len(lista)
-    i, j = int(0), int(1)
-    while(i < tamanio and j < tamanio):
-        if(i != j and lista[j] - lista[i] == x):
-            print('Par encontrado: ({} - {})'.format(lista[j], lista[i]))
-            return True
-        elif(lista[j] - lista[i] < x):
-            j = j + 1
+'''Dado un arreglo y un numero n, buscar si existe un par cuya 
+   diferencia es n.
+
+   - Complejidad Tiempo: O (n logn)
+'''
+
+from sys import stdin, stdout
+rl = stdin.readline
+wr = stdout.write
+
+
+def findPair(arr, n):
+    size = len(arr)
+
+    i, j = 0, 1
+    while i < size and j < size:
+        if i != j and arr[j] - arr[i] == n:
+            wr(f'Par encontrado: {arr[i]} - {arr[j]}\n')
+            # return True # Encontrar solo un par
+            i += 1  # Encontrar todos los pares
+            j += 1  # Encontrar todos los pares
+        elif arr[j] - arr[i] < n:
+            j += 1
         else:
-            i = i + 1
-    print('No existe el par que logre ser igual a n al restar')
+            i += 1
+
+    wr('Par no encontrado\n')
     return False
 
 
-if __name__ == '__main__':
-    lista = [1, 3, 4, 5, 8, 10, 11]
-    x = int(input())
-    findPair(lista, x)
+arr = list(map(int, rl().split()))  # 1 2 3 4 5 6 7
+n = int(rl())  # 5
+findPair(arr, n)  # 1 -6 | 2 - 7
