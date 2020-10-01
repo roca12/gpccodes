@@ -1,16 +1,22 @@
-def getMissingNum(lista, n):
-    x1 = lista[0]
-    x2 = int(1)
-    for i in range(1, n):
-        x1 = x1 ^ lista[i]
-    for i in range(2, n+2):
-        x2 = x2 ^ i
+'''Buscar el numero perdido en un arreglo'''
+
+from sys import stdin, stdout
+rl = stdin.readline
+wr = stdout.write
+
+
+def get_Missing_N(a=list, n=int):
+    x1 = a[0]
+    x2 = 1
+    for i in range(1, n):  # Hash de Datos que tengo
+        x1 ^= a[i]
+        # wr(f'{i} -> {x1}\n')  # Print Statement
+    for i in range(2, n+2):  # Hash de Datos que debería tener
+        x2 ^= i
+        # wr(f'{i} -> {x2}\n')  # Print Statement
     return x1 ^ x2
 
 
-if __name__ == '__main__':
-    lista = [1, 2, 3, 4, 5, 6, 7, 9, 10]
-    missed = getMissingNum(lista, len(lista))
-    print('Numero perdido: {}'.format(missed))
-    #print('Numero perdido:', missed)
-    #print(f'Numero perdido: {missed}')
+arr = list(map(int, rl().split()))
+missed = get_Missing_N(arr, len(arr))
+wr(f'El numero que falta es: {missed}')
