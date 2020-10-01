@@ -1,27 +1,42 @@
-def ternarySearch(izq, der, num, lista):
-    if (der >= izq):
-        mid1 = int(izq+(der-izq)/3)
-        mid2 = int(der-(der-izq)/3)
-        if (lista[mid1] == num):
+'''Ternary Search
+ 
+   - Similar a Binary Search.
+   - Se divide el arreglo en 3 partes.
+   - El arreglo debe estar ordenado.
+   - Complejidad Tiempo: O(log3 n) -> n = len(arr).
+'''
+
+from sys import stdin, stdout
+rl = stdin.readline
+wr = stdout.write
+
+
+def ternary_Search(left, right, key, arr):
+    if right >= left:
+
+        mid1 = left + (right - left) // 3
+        mid2 = right - (right - left) // 3
+
+        if arr[mid1] == key:
             return mid1
-        if (lista[mid2] == num):
+        if arr[mid2] == key:
             return mid2
-        if (num < lista[mid1]):
-            return ternarySearch(izq, mid1-1, num, lista)
-        elif (num > lista[mid2]):
-            return ternarySearch(mid2+1, der, num, lista)
+
+        if key < arr[mid1]:
+            return ternary_Search(left, mid1-1, key, arr)
+        elif key > arr[mid2]:
+            return ternary_Search(mid2+1, right, key, arr)
         else:
-            return ternarySearch(mid1+1, mid2-1, num, lista)
+            return ternary_Search(mid1+1, mid2-1, key, arr)
+
     return -1
 
 
-if __name__ == '__main__':
-    lista = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    izq = int(0)
-    der = len(lista)-1
-    numeroabuscar = int(input())
-    resultado = ternarySearch(izq, der, numeroabuscar, lista)
-    if(resultado == -1):
-        print('El numero no esta en la lista')
-    else:
-        print(f'Encontrado en el indice {resultado}')
+arr = list(map(int, rl().split()))
+x = int(rl())
+result = ternary_Search(0, len(arr)-1, x, arr)
+
+if result == -1:
+    wr('Dato no encontrado')
+else:
+    wr(f'Dato encontrado en la posicion {result}')
