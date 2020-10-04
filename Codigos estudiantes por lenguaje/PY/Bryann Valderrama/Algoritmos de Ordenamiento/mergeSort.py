@@ -1,41 +1,43 @@
-def merge(arr, izq, mid, der):
-    n1 = mid-izq+1
-    n2 = der-mid
-    L = []
-    R = []
-    for i in range(n1):
-        L.append(arr[izq+i])
-    for i in range(n2):
-        R.append(arr[mid + 1+i])
-    i = int(0)
-    j = int(0)
-    k = izq
-    while(i < n1 and j < n2):
-        if(L[i] <= R[j]):
-            arr[k] = L[i]
-            i = i+1
-        else:
-            arr[k] = R[j]
-            j = j+1
-        k = k+1
-    while(i < n1):
-        arr[k] = L[i]
-        i = i+1
-        k = k+1
-    while(j < n2):
-        arr[k] = R[j]
-        j = j+1
-        k = k+1
+'''Merge Sort (Ordenamiento por Mezcla)
+
+   - Algoritmo de divide y conquista.
+   - Divide una lista en partes iguales hasta que queden sublistas de 1 o 0 elementos.
+   - Posteriormente recombina en forma ordenada.
+   - Es muy eficiente para listas dinamicas.
+   - Complejidad Tiempo: O(n logn)
+'''
+
+from sys import stdin, stdout
+rl = stdin.readline
+wr = stdout.write
 
 
-def mergeSort(arr, izq, der):
-    if(izq < der):
-        mid = (izq + der) // 2
-        mergeSort(arr, izq, mid)
-        mergeSort(arr, mid+1, der)
-        merge(arr, izq, mid, der)
+def mergeSort(arr):
+    if len(arr) > 1:
+
+        m = len(arr) // 2
+        left = arr[:m]
+        right = arr[m:]
+        left = mergeSort(left)
+        right = mergeSort(right)
+
+        arr = []
+
+        while len(left) > 0 and len(right) > 0:
+            if left[0] < right[0]:
+                arr.append(left[0])
+                left.pop(0)
+            else:
+                arr.append(right[0])
+                right.pop(0)
+
+        for i in left:
+            arr.append(i)
+        for i in right:
+            arr.append(i)
+
+    return arr
 
 
-lista = [int(x) for x in input().split()]
-mergeSort(lista, 0, len(lista)-1)
-print(*lista)
+arr = list(map(int, rl().split()))
+print(*mergeSort(arr))
