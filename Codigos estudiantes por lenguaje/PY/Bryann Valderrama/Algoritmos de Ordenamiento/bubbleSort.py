@@ -1,14 +1,25 @@
-def bubbleSort(arr, n):
-    if (n == 1):
+'''Bubble Sort
+
+   - Algoritmo mas simple de ordenamiento.
+   - Intercambia repetidamente los elementos si están en orden incorrecto.
+   - Complejidad Tiempo: O(n^2).
+'''
+
+from sys import stdin, stdout
+rl = stdin.readline
+wr = stdout.write
+
+
+def bubbleSort(x, n):
+    if n == 1:
         return
-    for i in range(0, n):
-        for idx in range(0, n-1):
-            if (arr[idx] > arr[idx+1]):
-                temp = arr[idx]
-                arr[idx] = arr[idx+1]
-                arr[idx+1] = temp
+
+    for i in range(n):
+        for idx in range(n-i):
+            if arr[idx] > arr[idx+1]:
+                arr[idx], arr[idx+1] = arr[idx+1], arr[idx]
+    return arr
 
 
-lista = [int(x) for x in input().split()]
-bubbleSort(lista, len(lista))
-print(*lista)
+arr = list(map(int, rl().split()))
+print(*bubbleSort(arr, len(arr)-1))
