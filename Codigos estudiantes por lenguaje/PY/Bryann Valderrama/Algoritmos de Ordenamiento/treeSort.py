@@ -56,7 +56,14 @@ def inOrder(actual):
         wr(f'{actual.key} ')
         inOrder(actual.right)
 
-
+      
+def posOrder(actual):
+    if actual != None:
+        posOrder(actual.right)
+        wr(f'{actual.key} ')
+        posOrder(actual.left)
+      
+      
 def insertInTree(arr):
     for i in range(len(arr)):
         insert(arr[i])
@@ -66,3 +73,5 @@ arr = list(map(int, rl().split()))
 init()
 insertInTree(arr)
 inOrder(root)
+wr('\n')
+posOrder(root)
