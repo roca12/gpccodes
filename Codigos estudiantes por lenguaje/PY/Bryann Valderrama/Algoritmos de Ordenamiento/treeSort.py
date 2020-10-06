@@ -21,6 +21,9 @@ class Hoja:
         self.right = None
         self.left = None
 
+      
+root = Hoja(0)
+
 
 def init():
     global root
@@ -60,6 +63,6 @@ def insertInTree(arr):
 
 
 arr = list(map(int, rl().split()))
-root = Hoja(arr[0])
+init()
 insertInTree(arr)
 inOrder(root)
