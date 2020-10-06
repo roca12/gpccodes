@@ -9,20 +9,20 @@
         Peor Caso: O(n^2)
 '''
 
-from sys import stdin, stdout, maxsize
+from sys import stdin, stdout
 rl = stdin.readline
 wr = stdout.write
 
 
 class Hoja:
 
-    def __init__(self, item):
+    def __init__(self, item=None):
         self.key = item
         self.right = None
         self.left = None
 
       
-root = Hoja(0)
+root = Hoja()
 
 
 def init():
@@ -36,8 +36,7 @@ def insert(key):
 
 
 def insertRec(raiz, key):
-    global root
-
+   
     if raiz == None:
         raiz = Hoja(key)
         return raiz
