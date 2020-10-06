@@ -48,7 +48,6 @@ def insertRec(raiz, key):
 
 
 def inOrder(actual):
-
     if actual != None:
         inOrder(actual.left)
         wr(f'{actual.key} ')
@@ -56,7 +55,6 @@ def inOrder(actual):
 
 
 def insertInTree(arr):
-
     for i in range(len(arr)):
         insert(arr[i])
 
