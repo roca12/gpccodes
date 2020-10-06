@@ -1,72 +1,94 @@
-from sys import stdout
+'''Tim Sort
+
+   - Usado en Java y Python.
+   - Divide el arreglo en bloques dependiendo del RUN.
+   - RUN: 32 a 64
+   - Insertion Sort + Merge Sort.
+   - Complejidad Tiempo: O(n log n).
+'''
+
+from sys import stdin, stdout
+from random import randint
+rl = stdin.readline
 wr = stdout.write
+
 
 RUN = 32
 
 
 def insertionSort(arr, left, right):
+
     for i in range(left+1, right+1):
         temp = arr[i]
         j = i - 1
-        while j >= left and arr[j] > temp:
-            arr[j + 1] = arr[j]
+        while arr[j] > temp and j >= left:
+            arr[j+1] = arr[j]
             j -= 1
-        arr[j + 1] = temp
+            if j < 0:
+                break
+
+        arr[j+1] = temp
 
 
-def merge(arr, l, m, r):
-    len1 = m - l + 1
-    len2 = r - m
-    left = [0 for x in range(len1)]
-    right = [0 for x in range(len2)]
-    for i in range(len1):
-        left[x] = arr[l + x]
-    for i in range(len2):
-        right[x] = arr[m + 1 + x]
-    i = 0
-    j = 0
-    k = l
+def mergeSort(arr, left, mid, right):
+
+    len1 = mid-left+1
+    len2 = right-mid
+
+    L = [0] * len1
+    R = [0] * len2
+
+    for x in range(len1):
+        L[x] = arr[left+x]
+    for x in range(len2):
+        R[x] = arr[mid+1+x]
+
+    i, j, k = 0, 0, left
     while i < len1 and j < len2:
-        if left[i] <= right[i]:
-            arr[k] = left[i]
+        if L[i] <= R[j]:
+            arr[k] = L[i]
             i += 1
         else:
-            arr[k] = right[j]
+            arr[k] = R[j]
             j += 1
         k += 1
+
     while i < len1:
-        arr[k] = left[i]
-        k += 1
+        arr[k] = L[i]
         i += 1
-    while j < len2:
-        arr[k] = right[j]
         k += 1
+    while j < len2:
+        arr[k] = R[j]
         j += 1
+        k += 1
 
 
 def timSort(arr, n):
+
     i = 0
     while i < n:
-        insertionSort(arr, i, min((i + 31), (n - 1)))
+        insertionSort(arr, i, min((i+31), (n-1)))
+        size = RUN
+        while size < n:
+            left = 0
+            while left < n:
+                mid = min((left + size - 1), (n-1))
+                right = min((left+2*size-1), (n-1))
+                mergeSort(arr, left, mid, right)
+                left += 2 * size
+            size *= 2
         i += RUN
-    size = RUN
-    while size < n:
-        left = 0
-        while left < 2:
-            mid = left + size - 1
-            right = min((left + 2 * size - 1), (n - 1))
-            merge(arr, left, mid, right)
-            left += 2 * size
-        size = 2 * size
 
 
 def printArray(arr, n):
-    for i in range(n):
-        wr(f'{arr[i]} ')
+
+    for i in arr:
+        wr(f'{i} ')
     wr('\n')
 
 
-arr = [int(x) for x in input().split()]
+arr = list(map(int, rl().split()))
 n = len(arr)
+printArray(arr, n)
 timSort(arr, n)
 printArray(arr, n)
