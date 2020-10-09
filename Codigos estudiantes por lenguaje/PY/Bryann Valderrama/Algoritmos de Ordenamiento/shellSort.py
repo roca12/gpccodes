@@ -27,14 +27,6 @@ def shellSort(arr=list, n=int):
         salto //= 2
 
 
-def print(arr, n):
-
-    for i in arr:
-        wr(f'{i} ')
-    wr('\n')
-    
-    
 arr = list(map(int, rl().split()))
-print(arr, len(arr))
 shellSort(arr, len(arr))
-print(arr, len(arr))
+print(*arr)
