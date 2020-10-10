@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class Main {
+  public static void main(String[] args) {
+        
+    Scanner sc= new Scanner (System.in);
+   int cases = sc.nextInt();
+    sc.nextLine();
+   for (int i = 0; i < cases; i++){
+    String entrada = sc.nextLine();  
+      System.out.println(Integer.parseInt(entrada.charAt(0)+"")
+              +Integer.parseInt(entrada.charAt((entrada.length()-1))+""));
+    
+    
+    }
+    
+    }
+}
+   
