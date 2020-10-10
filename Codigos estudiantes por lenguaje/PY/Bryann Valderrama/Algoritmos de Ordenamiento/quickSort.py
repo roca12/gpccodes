@@ -1,25 +1,39 @@
-def partition(arr, low, high):
+'''Quick Sort
+
+   - Algoritmo de Divide y Conquista.
+   - Selecciona un elemento como pivote, y divide el arreglo.
+   - Los menores al pivote a la izquierda, los mayores a la derecha.
+   - Complejidad Tiempo: O(n log n).
+'''
+
+from sys import stdin, stdout
+rl = stdin.readline
+wr = stdout.write
+
+
+def partition(arr=list, low=int, high=int):
+
     pivot = arr[high]
     i = low - 1
+
     for j in range(low, high):
-        if(arr[j] < pivot):
-            i = i + 1
-            temp = arr[i]
-            arr[i] = arr[j]
-            arr[j] = temp
-    temp = arr[i+1]
-    arr[i+1] = arr[high]
-    arr[high] = temp
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+
+    arr[i+1], arr[high] = arr[high], arr[i+1]
+
     return i+1
 
 
-def quickSort(arr, low, high):
-    if(low < high):
-        pivot = partition(arr, low, high)
-        quickSort(arr, low, pivot-1)
-        quickSort(arr, pivot+1, high)
+def quickSort(arr=list, low=int, high=int):
+
+    if low < high:
+        piv = partition(arr, low, high)
+        quickSort(arr, low, piv-1)
+        quickSort(arr, piv+1, high)
 
 
-lista = [int(x) for x in input().split()]
-quickSort(lista, 0, len(lista)-1)
-print(*lista)
+arr = list(map(int, rl().split()))
+quickSort(arr, 0, len(arr)-1)
+print(*arr)
