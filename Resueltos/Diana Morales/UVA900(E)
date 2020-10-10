@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+typedef long long int ll;
+ll fib (ll n){
+	if(n<=3){
+        return n;
+	}
+	return fib (n-1)+fib(n-2);
+}
+
+int main(){
+	 while (true) {
+	ll a;
+
+	cin>>a;
+	if (a == 0) {
+                break;
+            }
+	cout<<fib(a)<<endl;
+}
+
+}
