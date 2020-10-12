@@ -30,3 +30,16 @@ void countSort(int arr[],int n,int ex){
         arr[i]=output[i];
     }
 }
+void radixSort(int arr[],int n){
+    int m=getMax(arr,m);
+    for(int ex=1;m/ex>0;ex++){
+        countSort(arr,n,ex);
+    }
+}
+int main(){
+    int arr[]={170,45,75,90,802,2,24,66};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    printArr(arr,n);
+    radixSort(arr,n);
+    printArr(arr,n);
+}
