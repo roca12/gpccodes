@@ -1,0 +1,235 @@
+#include<bits/stdc++.h>
+#include<cstdlib>
+using namespace std;
+void cycleSort(int arr[],int n){
+    int writes=0;
+    for(int cyclestart=0;cyclestart<n-2;cyclestart++){
+        int item=arr[cyclestart];
+        int pos=cyclestart;
+        for(int i=cyclestart+1;i<n;i++){
+            if(arr[i]<item){
+                pos++;
+            }
+        }
+        if(pos==cyclestart)continue;
+        while(item==arr[pos]){
+            pos++;
+        }
+        if(pos!=cyclestart){
+            swap(item,arr[pos]);
+            writes++;
+        }
+        while(pos!=cyclestart){
+            pos=cyclestart;
+            for(int i=cyclestart+1;i<n;i++){
+                if(arr[i]<item){
+                    pos++;
+                }
+            }
+            while(item==arr[pos]){
+                pos++;
+            }
+            if(item!=arr[pos]){
+                swap(item,arr[pos]);
+                writes++;
+            }
+        }
+    }
+
+}
+int main() {
+    int arr[]={1,8,3,9,10,2,4,10,45,-5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    cycleSort(arr,n);
+    for(int i:arr){
+        printf("%d ",i);
+    }
+}
+
+
+-----------------
+#include<bits/stdc++.h>
+#include<cstdlib>
+using namespace std;
+void cycleSort(int arr[],int n){
+    int writes=0;
+    for(int cyclestart=0;cyclestart<n-2;cyclestart++){
+        int item=arr[cyclestart];
+        int pos=cyclestart;
+        for(int i=cyclestart+1;i<n;i++){
+            if(arr[i]<item){
+                pos++;
+            }
+        }
+        if(pos==cyclestart)continue;
+        while(item==arr[pos]){
+            pos++;
+        }
+        if(pos!=cyclestart){
+            swap(item,arr[pos]);
+            writes++;
+        }
+        while(pos!=cyclestart){
+            pos=cyclestart;
+            for(int i=cyclestart+1;i<n;i++){
+                if(arr[i]<item){
+                    pos++;
+                }
+            }
+            while(item==arr[pos]){
+                pos++;
+            }
+            if(item!=arr[pos]){
+                swap(item,arr[pos]);
+                writes++;
+            }
+        }
+    }
+
+}
+int main() {
+    int arr[]={1,8,3,9,10,2,4,10,45,-5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    cycleSort(arr,n);
+    for(int i:arr){
+        printf("%d ",i);
+    }
+}
+------------------
+#include<bits/stdc++.h>
+#include<cstdlib>
+using namespace std;
+void cycleSort(int arr[],int n){
+    int writes=0;
+    for(int cyclestart=0;cyclestart<n-2;cyclestart++){
+        int item=arr[cyclestart];
+        int pos=cyclestart;
+        for(int i=cyclestart+1;i<n;i++){
+            if(arr[i]<item){
+                pos++;
+            }
+        }
+        if(pos==cyclestart)continue;
+        while(item==arr[pos]){
+            pos++;
+        }
+        if(pos!=cyclestart){
+            swap(item,arr[pos]);
+            writes++;
+        }
+        while(pos!=cyclestart){
+            pos=cyclestart;
+            for(int i=cyclestart+1;i<n;i++){
+                if(arr[i]<item){
+                    pos++;
+                }
+            }
+            while(item==arr[pos]){
+                pos++;
+            }
+            if(item!=arr[pos]){
+                swap(item,arr[pos]);
+                writes++;
+            }
+        }
+    }
+
+}
+int main() {
+    int arr[]={1,8,3,9,10,2,4,10,45,-5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    cycleSort(arr,n);
+    for(int i:arr){
+        printf("%d ",i);
+    }
+}
+----------------
+import java.util.*;
+
+public class Main {
+
+    static void pigeonhole_sort(int vec[], int n) {
+        int minimo = vec[0];
+        int maximo = vec[0];
+        int rango, i, j, indice;
+        for (int a = 0; a < n; a++) {
+            if (vec[a] > maximo) {
+                maximo = vec[a];
+            }
+            if (vec[a] < minimo) {
+                minimo = vec[a];
+            }
+        }
+        rango = maximo - minimo + 1;
+
+        int[] vecphole = new int[rango];
+        Arrays.fill(vecphole, 0);
+        for (i = 0; i < n; i++) {
+            vecphole[vec[i] - minimo]++;
+        }
+        indice = 0;
+        for (j = 0; j < rango; j++) {
+            while (vecphole[j]-- > 0) {
+                vec[indice++] = j + minimo;
+            }
+        }
+    }
+    static void soutvec(int vec[]) {
+        for (int i = 0; i < vec.length; i++) {
+            System.out.print(vec[i]+" ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        Random r= new Random();
+        int[] vec = new int [20];
+        for (int i = 0; i < vec.length; i++) {
+            vec[i]=r.nextInt(100);
+        }
+        System.out.print("Array ordenado : ");
+        pigeonhole_sort(vec, vec.length);
+        soutvec(vec);
+    }
+}
+----------------------
+#include<bits/stdc++.h>
+#include<cstdlib>
+using namespace std;
+void pigeonHole(int arr[],int n){
+    int MIN=arr[0];
+    int MAX=arr[0];
+    int range=0,i,j,index=0;
+    for(int a=0;a<n;a++){
+        if(arr[a]>MAX){
+            MAX=arr[a];
+        }
+        if(arr[a]<MIN){
+            MIN=arr[a];
+        }
+    }
+    range= MAX - MIN + 1;
+    int phole[range];
+    memset(phole,0,sizeof phole);
+    for(i=0;i<n;i++){
+        phole[arr[i]-MIN]++;
+    }
+    for(j=0;j<range;j++){
+        while(phole[j]--){
+            arr[index++]=j+MIN;
+        }
+    }
+}
+void printArr(int arr[],int n){
+    for(int i=0;i<n;i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl;
+}
+int main() {
+    int arr[]={1,3,54,255,2,5,3,1,5,7,4,299,3,54,64,73,-1};
+    int N=sizeof(arr)/sizeof(arr[0]);
+    pigeonHole(arr,N);
+    cout<<"arreglo ordenados"<<endl;
+    printArr(arr,N);
+}
