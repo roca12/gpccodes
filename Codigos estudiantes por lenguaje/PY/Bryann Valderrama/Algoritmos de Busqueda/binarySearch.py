@@ -1,19 +1,37 @@
-def binarySearch(arr, izq, der, numeroabuscar):
-    if(der >= izq):
-        medio = izq + (der-izq) // 2
-        if(arr[medio] == numeroabuscar):
-            return medio
-        if (arr[medio] > numeroabuscar):
-            return binarySearch(arr, izq, medio-1, numeroabuscar)
+'''Binary Search
+
+   - Divide repetidamente la lista a la mitad hasta encontrar o no el objetivo.
+   - La lista debe estar ordenada.
+   - Complejidad Tiempo: O(log n).
+'''
+
+
+from sys import stdin, stdout
+rl = stdin.readline
+wr = stdout.write
+
+
+def binary_Search(arr, left, right, x):
+    if right >= left:
+
+        mid = left + (right - left) // 2
+
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            return binary_Search(arr, left, mid-1, x)
         else:
-            return binarySearch(arr, medio+1, der, numeroabuscar)
-    return -1
+            return binary_Search(arr, mid+1, right, x)
+
+    else:
+        return -1
 
 
-arr = [2, 3, 4, 5, 6]
-numeroabuscar = int(input())
-resultado = binarySearch(arr, 0, len(arr)-1, numeroabuscar)
-if(resultado == -1):
-    print('Elemento no encontrado')
+arr = list(map(int, rl().split()))
+x = int(rl())
+result = binary_Search(arr, 0, len(arr)-1, x)
+
+if result == -1:
+    wr('Dato no encontrado')
 else:
-    print('Elemento encontrado en el indice', resultado)
+    wr(f'Dato en la posicion {result}')

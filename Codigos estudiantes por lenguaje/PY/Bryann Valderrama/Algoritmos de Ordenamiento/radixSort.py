@@ -1,36 +1,65 @@
-# Solo con Numeros Positivos
+'''Radix Sort
 
-def getMax(arr, n):
-    maxim = arr[0]
+   - Ordena enteros ordenando sus digitos de forma individual, desde
+     los menos significativos a los mas significativos.
+   - No sirve para numeros negativos.
+   - Complejidad Tiempo: O(n log n).
+'''
+
+from sys import stdin, stdout
+rl = stdin.readline
+wr = stdout.write
+
+
+def getMax(arr=list, n=int):
+
+    max_ = arr[0]
+
     for i in range(1, n):
-        if(arr[i] > maxim):
-            maxim = arr[i]
-    return maxim
+        if arr[i] > max_:
+            max_ = arr[i]
+
+    return max_
 
 
-def countSort(arr, n, exp):
-    output = [0 for x in range(n)]
-    count = [0 for x in range(10)]
-    i = 0
-    for i in range(0, n):
-        count[(arr[i]//exp) % 10] += 1
+def countSort(arr=list, n=int, exp=int):
+
+    output = [0] * n
+    count = [0] * 10
+
+    for i in range(n):
+        count[(arr[i] // exp) % 10] += 1
+
     for i in range(1, 10):
         count[i] += count[i-1]
-    for i in range(n-1, -1, -1):
-        output[count[(arr[i]//exp) % 10]-1] = arr[i]
-        count[(arr[i]//exp) % 10] -= 1
-    for i in range(0, n):
+
+    i = n-1
+    while i >= 0:
+        output[count[(arr[i] // exp) % 10] - 1] = arr[i]
+        count[(arr[i] // exp) % 10] -= 1
+        i -= 1
+
+    for i in range(n):
         arr[i] = output[i]
 
 
-def radixSort(arr, n):
+def radixSort(arr=list, n=int):
+
     m = getMax(arr, n)
+
     exp = 1
-    while m//exp > 0:
+    while m // exp > 0:
         countSort(arr, n, exp)
-        exp *= 10
+        exp += 1
 
 
-lista = [int(x) for x in input().split()]
-radixSort(lista, len(lista))
-print(*lista)
+def print(arr, n):
+    for i in arr:
+        wr(f'{i} ')
+    wr('\n')
+
+
+arr = list(map(float, rl().split()))
+print(arr, len(arr))
+radixSort(arr, len(arr))
+print(arr, len(arr))

@@ -1,18 +1,32 @@
-def ShellSort(arr):
-    n = len(arr)
-    grap = n // 2
-    while grap > 0:
-        i = grap
-        while i < n:
+'''Shell Sort
+
+   - Algoritmo de Divide y Conquista.
+   - Va comparando 2 numeros haciendo saltos.
+   - Los saltos se reducen a la mitad en cada comparacion.
+   - Complejidad Tiempo: 
+        Peor: O(n^2) 
+        Mejor: O (n log n)
+'''
+
+from sys import stdin, stdout
+rl = stdin.readline
+wr = stdout.write
+
+
+def shellSort(arr=list, n=int):
+
+    salto = n // 2
+    while salto > 0:
+        for i in range(salto, n):
             temp = arr[i]
             j = i
-            while j >= grap and arr[j-grap] > temp:
-                arr[j] = arr[j-grap]
-                j -= grap
-            arr[j]=temp
-            i += 1
-        grap //= 2
-        
-arr = [12,56,89,47,89,23]
-ShellSort(arr)
+            while j >= salto and arr[j-salto] > temp:
+                arr[j] = arr[j-salto]
+                j -= salto
+            arr[j] = temp
+        salto //= 2
+
+
+arr = list(map(int, rl().split()))
+shellSort(arr, len(arr))
 print(*arr)

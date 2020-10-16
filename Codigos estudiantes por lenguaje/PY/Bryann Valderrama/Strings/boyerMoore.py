@@ -1,44 +1,43 @@
+'''Boyer-Moore (Heuristica)
+
+   - Heuristica de Bad Character (tabla con caracter que no está en el patron)
+   - Heuristica de Buenos Sufijos (tabla con caracter que si está en el patron)
+   - Comienza cotejamiento desde el final hasta el inicio.
+   - Complejidad Tiempo:
+        - Mejor Caso: O(n/m)
+        - Peor Caso: O(n*m)
+'''
+
 from sys import stdout
+wr = stdout.write
+
 NO_OF_CHARS = 256
 
 
-def maximo(a, b):
-    return a if a > b else b
-
-
-def badCharHeuristic(string, size, badChar):
+def badChar(string, size, badchar):
     for i in range(size):
-        badChar[ord(string[i])] = i
+        badchar[ord(string[i])] = i
 
 
-def boyerMoore(txt, pat):
+def BMsearch(txt, pat):
+
     M = len(pat)
     N = len(txt)
-    badChar = [-1 for x in range(NO_OF_CHARS)]
-    badCharHeuristic(pat, M, badChar)
+    badchar = [0] * NO_OF_CHARS
+    badChar(pat, M, badchar)
     s = 0
-    while s <= (N-M):
+
+    while s <= N-M:
         j = M-1
-        while j >= 0 and ord(pat[j]) == ord(txt[s+j]):
+        while j >= 0 and pat[j] == txt[s+j]:
             j -= 1
         if j < 0:
-            stdout.write(
-                f'Patron ({pat}) encontrado en el indice {s} - {s+M-1}\n')
-            s += M - badChar[ord(txt[s+M])] if (s + M < N) else 1
+            wr(f'"{"".join(txt[s:s+M])}" encontrado en el indice ({s} - {s+M-1})\n')
+            s += M - badchar[ord(txt[s+M])] if s + M < N else 1
         else:
-            s += maximo(1, j-badChar[ord(txt[s+j])])
+            s += max(1, j - badchar[ord(txt[s+j])])
 
 
-# String
-txt = 'holacomoestasholahola'
-
-# *----------- Una Palabra -----------*
-stdout.write('Una Palabra\n')
-pat = 'hola'
-boyerMoore(txt, pat)
-
-# *-------- Lista de Palabras --------*
-stdout.write('Lista de Palabras\n')
-pat = ['hola', 'la']
-for i in pat:
-    boyerMoore(txt, i)
+txt = 'anitalavalatina'
+pat = 'al'
+BMsearch(txt, pat)

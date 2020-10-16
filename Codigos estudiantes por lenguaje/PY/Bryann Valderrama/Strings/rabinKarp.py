@@ -1,31 +1,46 @@
-from sys import stdout, stdin
-d = 256
+'''Rabin-Karp
+
+   - Busca un patron dentro de un texto.
+   - Genera Hashes para substrings en el texto y el patron segun los # de ASCCI de cada caracter.
+   - Busca Hashes similares y luego compara los caracteres individuales.
+   - Complejidad Tiempo: 
+        - Promedio y Mejor Caso: O(n+m)
+        - Peor Caso: O(n*m)
+'''
+
+from sys import stdin, stdout
+wr = stdout.write
+
+D = 256  # Caracteres del ASCII
 
 
-def rabinKarp(pat, txt, q):
-    global d
+def RKsearch(pat, txt, q):
+
     M = len(pat)
     N = len(txt)
-    j, p, t, h = int(0), int(0), int(0), int(1)
+    j = 0  # i itera en el texto, j itera en el patron
+    h, p, t = 1, 0, 0  # Hashes
+
     for i in range(M-1):
-        h = (h * d) % q
+        h = (h*D) % q
     for i in range(M):
-        p = (d * p + ord(pat[i])) % q
-        t = (d * t + ord(txt[i])) % q
-    for i in range(N-M + 1):
+        p = (D * p + ord(pat[i])) % q
+        t = (D * t + ord(txt[i])) % q
+    for i in range(N-M+1):
         if p == t:
             for j in range(M):
-                if txt[i + j] != pat[j]:
+                if txt[i+j] != pat[j]:
                     break
             j += 1
             if j == M:
-                stdout.write(f'Patron en {i} - {i+M-1}\n')
+                wr(f'"{txt[i:i+M]}" encontrado en el indice ({i} - {i+M-1})\n')
+
         if i < N-M:
-            t = (d*(t-ord(txt[i])*h) + ord(txt[i + M])) % q
+            t = (D * (t - ord(txt[i]) * h) + ord(txt[i+M])) % q
             if t < 0:
-                t = t + q
+                t += q
 
 
-txt = 'Anita lava la tina'
-pat = 'la'
-rabinKarp(pat, txt, d)
+txt = 'ABCABCABC'
+pat = 'ABC'
+RKsearch(pat, txt, 17)  # Se ingresa num primo

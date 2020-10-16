@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double a, b, c;
+        while (sc.hasNext()) {
+
+            a = sc.nextDouble();
+            b = sc.nextDouble();
+            c = sc.nextDouble();
+            double M, x, p, H, G;
+
+            M = (a + b + c) / 2;
+            x = Math.sqrt(M * (M - a) * (M - b) * (M - c));
+            p = (x / M);
+            H = (a * b * c) / Math.sqrt(2 * M * (b + c - a) * (c + a - b) * (a + b - c));
+            G = Math.PI * (p * p);
+            System.out.printf("%.4f %.4f %.4f\n", ((Math.PI * H * H) - x), (x - G), G
+            );
+
+        }
+    }
+}

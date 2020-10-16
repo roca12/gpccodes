@@ -1,0 +1,33 @@
+
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            int N;
+            N = sc.nextInt();
+            if(N==0){
+            break;}
+            int o = 0;
+            while (true) {
+
+                int y = 0;
+
+                y = (int) Math.pow(N, 2);
+                N = N - 1;
+                o = y + o;
+                if (N == 0) {
+
+                    System.out.println(o);
+                    break;
+
+                }
+
+            }
+
+        }
+
+    }
+}

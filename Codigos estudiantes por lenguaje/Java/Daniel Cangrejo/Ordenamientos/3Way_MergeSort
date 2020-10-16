@@ -1,0 +1,85 @@
+//3Way_MergeSort
+public class Ordenamientos2_5 {
+
+		static void mergeSort3way(Integer[] arr) {
+			if (arr == null) {
+				return;
+			}
+			Integer[] arr2 = new Integer[arr.length];
+			System.arraycopy(arr, 0, arr2, 0, arr2.length);
+			mergeSort3WayRec(arr2, 0, arr2.length, arr);
+			System.arraycopy(arr2, 0, arr, 0, arr2.length);
+		}
+
+		static void mergeSort3WayRec(Integer[] arr, int low, int high, Integer[] dest) {
+			if (high - low < 2) {
+				return;
+			}
+			int mid1 = low + ((high - low) / 3);
+			int mid2 = low + 2 * ((high - low) / 3) + 1;
+			mergeSort3WayRec(dest, low, mid1, arr);
+			mergeSort3WayRec(dest, mid1, mid2, arr);
+			mergeSort3WayRec(dest, mid2, high, arr);
+			merge(dest, low, mid1, mid2, high, arr);
+		}
+
+		static void merge(Integer[] arr, int low, int mid1, int mid2, int high, Integer[] dest) {
+			int i = low, j = mid1, k = mid2, l = low;
+			while ((i < mid1) && (j < mid2 && (k < high))) {
+				if (arr[i].compareTo(arr[j]) < 0) {
+					if (arr[i].compareTo(arr[k]) < 0) {
+						dest[l++] = arr[i++];
+					} else {
+						dest[l++] = arr[k++];
+					}
+				} else {
+					if (arr[j].compareTo(arr[k]) < 0) {
+						dest[l++] = arr[j++];
+					} else {
+						dest[l++] = arr[k++];
+					}
+
+				}
+			}
+			while ((i < mid1) && (j < mid2)) {
+				if (arr[i].compareTo(arr[j]) < 0) {
+					dest[l++] = arr[i++];
+				} else {
+					dest[l++] = arr[j++];
+				}
+			}
+			while (j < mid2 && k < high) {
+				if (arr[j].compareTo(arr[k]) < 0) {
+					dest[l++] = arr[j++];
+				} else {
+					dest[l++] = arr[k++];
+				}
+			}
+			while ((i < mid1) && (k < high)) {
+				if (arr[i].compareTo(arr[k]) < 0) {
+					dest[l++] = arr[i++];
+				} else {
+					dest[l++] = arr[k++];
+				}
+			}
+			while (i < mid1) {
+				dest[l++] = arr[i++];
+			}
+			while (j < mid2) {
+				dest[l++] = arr[j++];
+			}
+			while (k < high) {
+				dest[l++] = arr[k++];
+			}
+
+		}
+
+		public static void main(String[] args) {
+			Integer[] data = new Integer[] { 45, -2, -45, 78, 30, -42, 10, 19, 73, 93 };
+			mergeSort3way(data);
+			for (int i = 0; i < data.length; i++) {
+				System.out.print(data[i] + " ");
+			}
+		}
+	}
+
