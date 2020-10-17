@@ -10,3 +10,4 @@ int main(){
 }
 
 // Iteración ternaria dentro de for 
+// Si a=b entonces la respuesta es 0. De lo contrario, si a>b y a−b es par o a<b y b−a es impar
