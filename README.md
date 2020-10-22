@@ -77,24 +77,14 @@ Universidad ECCI, Bogotá - Colombia
 ## Repositorios similares
 [![Repositorios similares](https://github-readme-stats.vercel.app/api/pin/?username=roca12&repo=gpccodes)](https://github.com/roca12/gpccodes)
 
-[![roca12 github stats](https://github-readme-stats.vercel.app/api?username=roca12&show_icons=true&hide=stars,issues&hide_rank=true)](https://github.com/roca12/ggpccodes)
-
-[![edanv1401 github stats](https://github-readme-stats.vercel.app/api?username=edanv1401&show_icons=true&theme=midnight-purple&hide=stars,issues&hide_rank=true)](https://github.com/roca12/ggpccodes)
-
-[![5AresAce6 github stats](https://github-readme-stats.vercel.app/api?username=5AresAce6&show_icons=true&theme=dark&hide=stars,issues&hide_rank=true)](https://github.com/roca12/ggpccodes)
-
-[![Luciano890 github stats](https://github-readme-stats.vercel.app/api?username=Luciano890&show_icons=true&theme=dark&hide=stars,issues&hide_rank=true)](https://github.com/roca12/ggpccodes)
-
-[![tatiana00017 github stats](https://github-readme-stats.vercel.app/api?username=tatiana00017&show_icons=true&theme=dark&hide=stars,issues&hide_rank=true)](https://github.com/roca12/ggpccodes)
-
-[![Morktem github stats](https://github-readme-stats.vercel.app/api?username=Morktem&show_icons=true&theme=gotham&hide=stars,issues&hide_rank=true)](https://github.com/roca12/ggpccodes)
-
-[![JuanoSebas github stats](https://github-readme-stats.vercel.app/api?username=JuanoSebas&show_icons=true&theme=tokyonight&hide=stars,issues&hide_rank=true)](https://github.com/roca12/ggpccodes)
-
-[![PaulaRios14 github stats](https://github-readme-stats.vercel.app/api?username=PaulaRios14&show_icons=true&theme=dark&hide=stars,issues&hide_rank=true)](https://github.com/roca12/ggpccodes)
-
-[![artemisa-M github stats](https://github-readme-stats.vercel.app/api?username=artemisa-M&show_icons=true&theme=tokyonight&hide=stars,issues&hide_rank=true)](https://github.com/roca12/ggpccodes)
-
-[![BryanttV github stats](https://github-readme-stats.vercel.app/api?username=BryanttV&show_icons=true&theme=react&hide=stars,issues&hide_rank=true)](https://github.com/roca12/ggpccodes)
-
-[![JaunMarin423 github stats](https://github-readme-stats.vercel.app/api?username=JaunMarin423&show_icons=true&theme=maroongold&hide=stars,issues&hide_rank=true)](https://github.com/roca12/ggpccodes)
+[![roca12 github stats](https://github-readme-stats.vercel.app/api?username=roca12&show_icons=true&hide=stars,issues&theme=yeblu)](https://github.com/roca12/ggpccodes)
+[![edanv1401 github stats](https://github-readme-stats.vercel.app/api?username=edanv1401&show_icons=true&theme=midnight-purple&hide=stars,issues)](https://github.com/roca12/ggpccodes)
+[![5AresAce6 github stats](https://github-readme-stats.vercel.app/api?username=5AresAce6&show_icons=true&theme=dark&hide=stars,issues)](https://github.com/roca12/ggpccodes)
+[![Luciano890 github stats](https://github-readme-stats.vercel.app/api?username=Luciano890&show_icons=true&theme=dark&hide=stars,issues)](https://github.com/roca12/ggpccodes)
+[![tatiana00017 github stats](https://github-readme-stats.vercel.app/api?username=tatiana00017&show_icons=true&theme=dark&hide=stars,issues)](https://github.com/roca12/ggpccodes)
+[![Morktem github stats](https://github-readme-stats.vercel.app/api?username=Morktem&show_icons=true&theme=gotham&hide=stars,issues)](https://github.com/roca12/ggpccodes)
+[![JuanoSebas github stats](https://github-readme-stats.vercel.app/api?username=JuanoSebas&show_icons=true&theme=tokyonight&hide=stars,issues)](https://github.com/roca12/ggpccodes)
+[![PaulaRios14 github stats](https://github-readme-stats.vercel.app/api?username=PaulaRios14&show_icons=true&theme=dark&hide=stars,issues)](https://github.com/roca12/ggpccodes)
+[![artemisa-M github stats](https://github-readme-stats.vercel.app/api?username=artemisa-M&show_icons=true&theme=tokyonight&hide=stars,issues)](https://github.com/roca12/ggpccodes)
+[![BryanttV github stats](https://github-readme-stats.vercel.app/api?username=BryanttV&show_icons=true&theme=react&hide=stars,issues)](https://github.com/roca12/ggpccodes)
+[![JaunMarin423 github stats](https://github-readme-stats.vercel.app/api?username=JaunMarin423&show_icons=true&theme=maroongold&hide=stars,issues)](https://github.com/roca12/ggpccodes)
