@@ -18,7 +18,7 @@
    <p align="center">
       <img  src="https://img.shields.io/github/languages/count/roca12/gpccodes?label=Lenguajes" />
       <img  src="https://img.shields.io/github/repo-size/roca12/gpccodes" />
-      <img  src="https://img.shields.io/github/commit-activity/m/roca12/gpccodes" />
+      <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/y/roca12/gpccodes?style=plastic">
       <img  src="https://img.shields.io/github/contributors/roca12/gpccodes" />
     <br />
   </p>
