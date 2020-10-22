@@ -93,7 +93,7 @@ Universidad ECCI, Bogotá - Colombia
 
 [![PaulaRios14 github stats](https://github-readme-stats.vercel.app/api?username=PaulaRios14&show_icons=true&theme=dark)](https://github.com/roca12/ggpccodes)
 
-[![artemisa-M github stats](https://github-readme-stats.vercel.app/api?username=artemisa-M&show_icons=true&theme=tokyonight)](https://github.com/roca12/ggpccodes)
+[![artemisa-M github stats](https://github-readme-stats.vercel.app/api?username=artemisa-M&show_icons=true&theme=buefy)](https://github.com/roca12/ggpccodes)
 
 [![BryanttV github stats](https://github-readme-stats.vercel.app/api?username=BryanttV&show_icons=true&theme=react)](https://github.com/roca12/ggpccodes)
 
