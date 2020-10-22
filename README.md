@@ -78,7 +78,7 @@ Universidad ECCI, Bogotá - Colombia
 
 [![roca12 github stats](https://github-readme-stats.vercel.app/api?username=roca12&show_icons=true&theme=dark)](https://github.com/roca12/ggpccodes)
 
-[![juliansilvit github stats](https://github-readme-stats.vercel.app/api?username=juliansilvit&show_icons=true&theme=dark)](https://github.com/roca12/ggpccodes)
+[![juliansilvit github stats](https://github-readme-stats.vercel.app/api?username=juliansilvit&show_icons=true&theme=blueberry)](https://github.com/roca12/ggpccodes)
 
 [![Juan Dadiv Marin github stats](https://github-readme-stats.vercel.app/api?username=juliansilvit&show_icons=true&theme=dark)](https://github.com/roca12/ggpccodes)
 
