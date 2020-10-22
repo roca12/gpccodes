@@ -86,7 +86,7 @@ Universidad ECCI, Bogotá - Colombia
 [![Morktem github stats](https://github-readme-stats.vercel.app/api?username=Morktem&show_icons=true&theme=gotham&hide=stars,issues)](https://github.com/roca12/ggpccodes)
 [![JuanoSebas github stats](https://github-readme-stats.vercel.app/api?username=JuanoSebas&show_icons=true&theme=tokyonight&hide=stars,issues)](https://github.com/roca12/ggpccodes)
 [![PaulaRios14 github stats](https://github-readme-stats.vercel.app/api?username=PaulaRios14&show_icons=true&theme=dark&hide=stars,issues)](https://github.com/roca12/ggpccodes)
-[![artemisa-M github stats](https://github-readme-stats.vercel.app/api?username=artemisa-M&show_icons=true&theme=tokyonight&hide=stars,issues)](https://github.com/roca12/ggpccodes)
+[![artemisa-M github stats](https://github-readme-stats.vercel.app/api?username=artemisa-M&show_icons=true&theme=buefy&hide=stars,issues)](https://github.com/roca12/ggpccodes)
 [![BryanttV github stats](https://github-readme-stats.vercel.app/api?username=BryanttV&show_icons=true&theme=react&hide=stars,issues)](https://github.com/roca12/ggpccodes)
 [![JaunMarin423 github stats](https://github-readme-stats.vercel.app/api?username=JaunMarin423&show_icons=true&theme=maroongold&hide=stars,issues)](https://github.com/roca12/ggpccodes)
 [![juliansilvit github stats](https://github-readme-stats.vercel.app/api?username=juliansilvit&show_icons=true&theme=tokyonight&hide=stars,issues)](https://github.com/roca12/ggpccodes)
