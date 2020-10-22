@@ -19,7 +19,6 @@
       <img  src="https://img.shields.io/github/languages/count/roca12/gpccodes?label=Lenguajes" />
       <img  src="https://img.shields.io/github/repo-size/roca12/gpccodes" />
       <img  src="https://img.shields.io/github/commit-activity/m/roca12/gpccodes" />
-      <img  src="https://img.shields.io/github/languages/count/roca12/gpccodes?label=Lenguajes" />
       <img  src="https://img.shields.io/github/contributors/roca12/gpccodes" />
     <br />
   </p>
@@ -46,15 +45,27 @@ Este repositorio se encuentra dividido en varias carpetas, las cuales contienen 
 
 # Codigos de estudiantes
 
+Contiene los archivos de cada estudiante competidor conteniendo los algoritmos que han sido explicados en entrenamiento en los tres lenguajes principales.
+
 # Ejericicos de competencia por revisar
+
+Contiene los ejercicios encontrados o investigados de competencias pasadas y estan a la espera de una lectura minuciosa.
 
 # Libros GFG
 
+Contiene libros de explicación de algoritmos avanzados para diferentes areas de las ciencias de la computación.
+
 # Por traducir
+
+Almacena los algoritmos nuevos que han sido investigados y que faltan ser traducidos a otros lenguajes
 
 # Recien traducido
 
+Almacena los algoritmos nuevos completamente traducidos y a la espera de ser integrados en las diferentes guias del programador competitivo
+
 # Resueltos
+
+Contiene los archivos fuente que son soluciones a ejercicios resueltos en diferentes competencias y de diferentes jueces en línea, tambien se encuentra subdividido por estudiantes y lenguajes
 
 # Medidor de lenguajes
 [![Uso de lenguajes de programación](https://github-readme-stats.vercel.app/api/top-langs/?username=roca12)](https://github.com/roca12/gpccodes)
