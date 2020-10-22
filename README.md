@@ -23,9 +23,9 @@
     <br />
   </p>
   <p align="center">
-      <img  src="https://img.shields.io/badge/Python-3.X-informational?style=flat&logo=python&logoColor=white&color=2bbc8a" />
-      <img  src="https://img.shields.io/badge/C++-14-informational?style=flat&logo=c&logoColor=white&color=2bbc8a" />
-      <img  src="https://img.shields.io/badge/Java-1.8-informational?style=flat&logo=java&logoColor=white&color=2bbc8a" />
+      <img  src="https://img.shields.io/badge/Python-3.X-informational?style=flat&logo=python&logoColor=white&color=green" />
+      <img  src="https://img.shields.io/badge/C++-14-informational?style=flat&logo=c&logoColor=white&color=red" />
+      <img  src="https://img.shields.io/badge/Java-1.8-informational?style=flat&logo=java&logoColor=white&color=blue" />
     <br />
   </p>
 </p>
