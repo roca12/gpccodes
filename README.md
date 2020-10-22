@@ -35,7 +35,7 @@ Algoritmos y ejercicios resueltos de programación competitiva que han sido real
 
 # Contenido
 - [Codigos de estudiantes](#codigos-de-estudiantes)
-- [Ejericicos de competencia por revisar](#ejericicos-de-competencia-por-revisar)
+- [Ejercicios de competencia por revisar](#ejercicios-de-competencia-por-revisar)
 - [Libros GFG](#libros-gfg)
 - [Por traducir](#por-traducir)
 - [Recien traducido](#recien-traducido)
@@ -47,7 +47,7 @@ Algoritmos y ejercicios resueltos de programación competitiva que han sido real
 
 Contiene los archivos de cada estudiante competidor conteniendo los algoritmos que han sido explicados en entrenamiento en los tres lenguajes principales.
 
-# Ejericicos de competencia por revisar
+# Ejercicios de competencia por revisar
 
 Contiene los ejercicios encontrados o investigados de competencias pasadas y estan a la espera de una lectura minuciosa.
 
@@ -73,17 +73,28 @@ Contiene los archivos fuente que son soluciones a ejercicios resueltos en difere
 # Acerca del propietario
 Administrado por Diego Rodriguez
 Universidad ECCI, Bogotá - Colombia
+
 ## Repositorios similares
 [![Repositorios similares](https://github-readme-stats.vercel.app/api/pin/?username=roca12&repo=gpccodes)](https://github.com/roca12/gpccodes)
 
-[![roca12 github stats](https://github-readme-stats.vercel.app/api?username=roca12&show_icons=true&theme=dark)](https://github.com/roca12/ggpccodes)
-
-[![juliansilvit github stats](https://github-readme-stats.vercel.app/api?username=juliansilvit&show_icons=true&theme=blueberry)](https://github.com/roca12/ggpccodes)
-
-[![Juan Dadiv Marin github stats](https://github-readme-stats.vercel.app/api?username=juliansilvit&show_icons=true&theme=dark)](https://github.com/roca12/ggpccodes)
-
-[![JaunMarin423 github stats](https://github-readme-stats.vercel.app/api?username=JaunMarin423&show_icons=true&theme=maroongold)](https://github.com/roca12/ggpccodes)
+[![roca12 github stats](https://github-readme-stats.vercel.app/api?username=roca12&show_icons=true)](https://github.com/roca12/ggpccodes)
 
 [![edanv1401 github stats](https://github-readme-stats.vercel.app/api?username=edanv1401&show_icons=true&theme=midnight-purple)](https://github.com/roca12/ggpccodes)
 
+[![5AresAce6 github stats](https://github-readme-stats.vercel.app/api?username=5AresAce6&show_icons=true&theme=dark)](https://github.com/roca12/ggpccodes)
+
+[![Luciano890 github stats](https://github-readme-stats.vercel.app/api?username=Luciano890&show_icons=true&theme=dark)](https://github.com/roca12/ggpccodes)
+
+[![tatiana00017 github stats](https://github-readme-stats.vercel.app/api?username=tatiana00017&show_icons=true&theme=dark)](https://github.com/roca12/ggpccodes)
+
+[![Morktem github stats](https://github-readme-stats.vercel.app/api?username=Morktem&show_icons=true&theme=gotham)](https://github.com/roca12/ggpccodes)
+
+[![JuanoSebas github stats](https://github-readme-stats.vercel.app/api?username=JuanoSebas&show_icons=true&theme=tokyonight)](https://github.com/roca12/ggpccodes)
+
+[![PaulaRios14 github stats](https://github-readme-stats.vercel.app/api?username=PaulaRios14&show_icons=true&theme=dark)](https://github.com/roca12/ggpccodes)
+
 [![artemisa-M github stats](https://github-readme-stats.vercel.app/api?username=artemisa-M&show_icons=true&theme=tokyonight)](https://github.com/roca12/ggpccodes)
+
+[![BryanttV github stats](https://github-readme-stats.vercel.app/api?username=BryanttV&show_icons=true&theme=react)](https://github.com/roca12/ggpccodes)
+
+[![JaunMarin423 github stats](https://github-readme-stats.vercel.app/api?username=JaunMarin423&show_icons=true&theme=maroongold)](https://github.com/roca12/ggpccodes)
