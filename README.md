@@ -77,7 +77,7 @@ Universidad ECCI, Bogotá - Colombia
 ## Repositorios similares
 [![Repositorios similares](https://github-readme-stats.vercel.app/api/pin/?username=roca12&repo=gpccodes)](https://github.com/roca12/gpccodes)
 
-[![roca12 github stats](https://github-readme-stats.vercel.app/api?username=roca12&show_icons=true&hide=stars,issues&theme=yeblu)](https://github.com/roca12/ggpccodes)
+[![roca12 github stats](https://github-readme-stats.vercel.app/api?username=roca12&show_icons=true&hide=stars,issues&bg_color=5,fff633,3364ff,f82712&title_color=fff&text_color=fff)](https://github.com/roca12/ggpccodes)
 [![edanv1401 github stats](https://github-readme-stats.vercel.app/api?username=edanv1401&show_icons=true&theme=midnight-purple&hide=stars,issues)](https://github.com/roca12/ggpccodes)
 [![5AresAce6 github stats](https://github-readme-stats.vercel.app/api?username=5AresAce6&show_icons=true&theme=dark&hide=stars,issues)](https://github.com/roca12/ggpccodes)
 [![Luciano890 github stats](https://github-readme-stats.vercel.app/api?username=Luciano890&show_icons=true&theme=dark&hide=stars,issues)](https://github.com/roca12/ggpccodes)
