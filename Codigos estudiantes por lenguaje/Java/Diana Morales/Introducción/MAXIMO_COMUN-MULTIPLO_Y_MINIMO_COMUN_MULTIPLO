@@ -1,0 +1,33 @@
+import java.util.*;
+import java.io.*;
+
+public class Main4 {
+    static int GCD(int a, int b) {
+        if(a==0)
+            return b;
+        return GCD(b%a,a);
+    }
+
+    static int encontrarGCD(int vec[], int x) {
+        int total= vec[0];
+        for (int i = 1; i < x; i++) {
+            total=GCD(vec[i], total);
+        }
+        return total;
+    }
+
+    public static void main(String[] args) throws IOException {
+        PrintWriter pw = new PrintWriter(System.out);
+        Scanner sc = new Scanner(System.in);
+        int a;
+        int vec[]= new int [a=sc.nextInt()];
+        for (int i = 0; i < vec.length; i++) {
+            vec[i]=sc.nextInt();
+        }
+        int x=vec.length;
+        pw.println(encontrarGCD(vec, x));
+        pw.close();
+
+    }
+
+}
