@@ -1,0 +1,25 @@
+import java.util.*;
+import java.io.*;
+
+public class Main {
+    static double GCD(double a, double b) {
+        if (a < b) {
+            return GCD(b, a);
+        }
+        if (Math.abs(b) < 0.001) {
+            return a;
+        } else {
+            return (GCD(b, a - Math.floor(a / b) * b));
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        PrintWriter pw = new PrintWriter(System.out);
+        Scanner sc = new Scanner(System.in);
+        double a = sc.nextDouble(), b = sc.nextDouble();
+        pw.printf("%.1f", GCD(a, b));
+        pw.close();
+
+    }
+
+}
