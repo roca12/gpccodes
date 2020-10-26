@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.*;
+
+public class Main4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        PrintWriter pw = new PrintWriter(System.out);
+        boolean primo = false;
+        int n = sc.nextInt();
+        if (primo(n)) {
+            pw.println("Es primo");
+
+        } else {
+            pw.println("No es primo");
+        }
+        pw.close();
+    }
+
+
+    public static boolean primo(int x) {
+        if (x < 2) {
+            return false;
+        }
+        if (x == 2) {
+            return true;
+        }
+        if (x % 2 == 0) {
+            return false;
+        }
+        for (int i = 2; Math.pow(2, i) <= x; i++) {
+            if (x % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+Daniel Cangrejo
