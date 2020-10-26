@@ -17,7 +17,7 @@ public class Main {
 		int a = 80;
 		int b = 30;
 		System.out.println("GCD: " + gcd(a, b));
-		System.out.println("GCD: " + lcm(a, b));
+		System.out.println("LCM: " + lcm(a, b));
 	
 	}
 }
