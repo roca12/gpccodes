@@ -1,0 +1,30 @@
+import java.util.*;
+import java.io.*;
+
+public class Main4 {
+    public static boolean[] criba(int x) {
+        boolean[] primo = new boolean[x + 1];
+        Arrays.fill(primo, true);
+        primo[0] = primo[1] = false;
+        for (int i = 2; i * i <= x; i++) {
+            if (primo[i]) {
+                for (int j = i * i; j <= x; j += i) {
+                    primo[j] = false;
+                }
+            }
+        }
+        return primo;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc= new Scanner (System.in);
+        PrintWriter pw= new PrintWriter(System.out);
+        int a=sc.nextInt();
+        boolean[] vec = criba(a);
+        for (int i = 0; i < vec.length; i++) {
+            pw.println(i + " : " + vec[i]);
+        }
+        pw.close();
+    }
+
+}
