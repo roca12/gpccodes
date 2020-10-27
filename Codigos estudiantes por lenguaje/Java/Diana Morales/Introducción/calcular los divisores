@@ -1,0 +1,27 @@
+import java.util.*;
+import java.io.*;
+
+public class Main4 {
+    static Scanner sc = new Scanner(System.in);
+    static PrintWriter pw = new PrintWriter(System.out);
+    static int divisores(int x) {
+        int div=1;
+        for (int i = 2; Math.pow(2, i) <= x; i++) {
+            int cont=0;
+            while(x%i==0) {
+                cont++;
+                x/=i;
+            }
+            div*=cont++;
+        }
+        if(x>1)div*=2;
+        return div;
+    }
+    
+    public static void main(String[] args) {
+        int a=sc.nextInt();
+        pw.println(divisores(a));
+        pw.close();
+    }
+}
+
