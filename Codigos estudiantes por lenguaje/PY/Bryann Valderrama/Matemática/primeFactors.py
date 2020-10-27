@@ -1,13 +1,24 @@
+'''Prime Factors
+   - Numeros Primos divisores exactos de un numero N
+'''
+
 from sys import stdout
+from math import factorial
+wr = stdout.write
+
 
 def primeFactors(n):
-    p = 2
-    while p*p <= n:
-        while n % p == 0:
-            stdout.write(f'{p}\n')
-            n //= p
-        p += 1
+
+    i = 2
+    while i * i <= n:
+        while n % i == 0:
+            wr(f'{i}\n')
+            n //= i
+        i += 1
+
     if n > 1:
-        stdout.write(f'{n}\n')
-        
-primeFactors(20)
+        wr(f'{n}\n')
+
+
+n = 12
+primeFactors(n)
