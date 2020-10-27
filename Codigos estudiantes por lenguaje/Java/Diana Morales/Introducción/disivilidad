@@ -1,0 +1,74 @@
+import java.util.*;
+import java.io.*;
+
+public class Main4 {
+	static Scanner sc = new Scanner(System.in);
+	static PrintWriter pw = new PrintWriter(System.out);
+
+	public static void main(String[] args) {
+
+		int a = sc.nextInt();
+		boolean[] vec = divisible(a);
+		for (int i = 0; i < vec.length; i++) {
+			pw.println(i + " : " + vec[i]);
+		}
+		pw.close();
+	}
+
+	static public boolean[] divisible(int num) {
+		String str = String.valueOf(num);
+		int n = str.length();
+		boolean[] divisible_En = new boolean[13];
+		int cont = 0;
+		for (char c : str.toCharArray()) {
+			cont += c - '0';
+		}
+		int ultimoDigito = str.charAt(n - 1) - '0';
+//Divisibilidad entre 1 
+		divisible_En[1] = true;
+//Divisibilidad entre 2 
+		divisible_En[2] = ultimoDigito % 2 == 0;
+//Divisibilidad entre 3 
+		divisible_En[3] = cont % 3 == 0;
+//Divisibilidad entre 4 
+		if (n > 1) {
+			divisible_En[4] = Integer.parseInt(str.substring(n - 2, n)) % 4 == 0;
+		} else {
+			divisible_En[4] = ultimoDigito % 4 == 0;
+		}
+//Divisibilidad entre 5
+		divisible_En[5] = ultimoDigito == 0 || ultimoDigito == 5;
+//Divisibilidad entre 6
+		divisible_En[6] = divisible_En[2] && divisible_En[3];
+		int sum = 0;
+		int[] pattern = { 1, 3, 2, -1, -3, -2 };
+		int j = 0;
+		for (int i = n - 1; i >= 0; i--) {
+			sum += pattern[j] * (str.charAt(i) - '0');
+			j = (j + 1) % 6;
+		}
+//Divisibilidad entre 7
+		divisible_En[7] = Math.abs(sum) % 7 == 0;
+//Divisibilidad entre 8 
+		if (n > 2) {
+			divisible_En[8] = Integer.parseInt(str.substring(n - 3, n)) % 8 == 0;
+		} else {
+			divisible_En[8] = Integer.parseInt(str) % 8 == 0;
+		}
+//Divisibilidad entre 9 
+		divisible_En[9] = cont % 8 == 0;
+//Divisibilidad entre 10 
+		divisible_En[10] = ultimoDigito == 0;
+		sum = 0;
+		int strveri = 1;
+		for (int i = n - 1; i >= 0; i--) {
+			sum += strveri * (str.charAt(i) - '0');
+			strveri = -strveri;
+		}
+//Divisibilidad entre 11
+		divisible_En[11] = Math.abs(sum) % 11 == 0;
+//Divisibilidad entre 12
+		divisible_En[12] = divisible_En[3] && divisible_En[4];
+		return divisible_En;
+	}
+}
