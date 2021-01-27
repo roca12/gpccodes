@@ -76,6 +76,9 @@ Universidad ECCI, Bogotá - Colombia
 
 ## Repositorios similares
 [![Repositorios similares](https://github-readme-stats.vercel.app/api/pin/?username=roca12&repo=gpccodes)](https://github.com/roca12/gpccodes)
+[![Repositorios similares](https://github-readme-stats.vercel.app/api/pin/?username=roca12&repo=Artemis_v1.0)](https://github.com/roca12/Artemis_v1.0)
+[![Repositorios similares](https://github-readme-stats.vercel.app/api/pin/?username=roca12&repo=miniartemis)](https://github.com/roca12/miniartemis)
+[![Repositorios similares](https://github-readme-stats.vercel.app/api/pin/?username=roca12&repo=Artemisa-Bot)](https://github.com/roca12/Artemisa-Bot)
 
 ## Contribuyentes
 [![roca12 github stats](https://github-readme-stats.vercel.app/api?username=roca12&show_icons=true&hide=stars,issues&theme=darcula)](https://github.com/roca12/ggpccodes)
