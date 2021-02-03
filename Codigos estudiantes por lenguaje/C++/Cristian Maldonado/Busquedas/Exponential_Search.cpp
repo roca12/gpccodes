@@ -1,37 +1,41 @@
 #include<iostream>
-#include<bits/stdc++.h>
+
 using namespace std;
 
-static int binarySearch(int arr[],int inicio, int fin,int x){
-	if(fin>inicio){
-		int mid = (inicio+(fin-1))/2;
-		if(arr[mid]==x){
+int binarySearch(int arr[],int start, int last, int x){
+	if(last >= start){
+		int mid = start +(last - start)/2;
+		if(arr[mid] == x)
 			return mid;
-		}
-		if(arr[mid]>x){
-			return binarySearch(arr,inicio,mid-1,x);
+		if(arr[mid] > x){
+			return binarySearch(arr, start, mid-1, x);
 		}else{
-			return binarySearch(arr,mid+1,fin,x);
+			return binarySearch(arr, mid+1, last, x);
 		}
-	}
+    }
 	return -1;
 }
 
-int exponentialSearch(int arr[], int tam , int buscado){
-	if(arr[0] == buscado){
+int exponentialSearch(int arr[], int tam , int lost){
+	if(arr[0] == lost){
 		return 0;
 	}
 	int i = 1;
-	while (i<tam && arr[i] <=buscado){
-		i = i*2;
+	while (i < tam && arr[i] <= lost){
+		i = i * 2;
 	}
-	return binarySearch(arr, i/2, min(i,tam),buscado);
+	return binarySearch(arr, i/2, min(i,tam - 1),lost);
 }
 
-int main (int argc, char *argv[]) {
-	int vector [] = {1,2,3,4,5};
-	int buscado = 2;
-	int resultado = exponentialSearch(vector,(sizeof(vector)/sizeof(0)), buscado);
-	cout << (resultado < 0 ? "Elemento no presente en el arreglo":"Elemento encontrado en la posicion: "+std::to_string(resultado))<<endl;
+int main () {
+    ios_base::sync_with_stdio(0);cin.tie(0);
+	int tam; cin>>tam;
+	int arr[tam];
+	for(int i = 0; i < tam; i++){
+        cin>>arr[i];
+	}
+	int lost; cin>>lost;
+	cout<<"The number was found at position: "<<exponentialSearch(arr, tam, lost)<<endl;
 	return 0;
 }
+
