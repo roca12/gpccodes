@@ -2,7 +2,7 @@
     Author : Edanv 
     29/04/21
     Prefix Sum desde un indece i hasta un j
-    O(N^2)
+    O(N)
 */
 #include <bits/stdc++.h>
 using namespace std;
