@@ -1,6 +1,13 @@
+/*
+    Author : Edanv 
+    29/04/21
+    Prefix Sum desde un indece i hasta un j
+    O(N^2)
+*/
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long int ll;
+//calculo de la suma de los elementos de forma lineal
 ll prefixSum(int i,int j,ll arr[]){
     ll sum_i=0,sum_j=0;
     return arr[j]-arr[i-1];
