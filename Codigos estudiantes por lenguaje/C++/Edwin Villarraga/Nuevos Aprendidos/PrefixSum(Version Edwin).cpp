@@ -1,3 +1,4 @@
+
 /*
     Author : Edanv
     29/04/21
@@ -12,11 +13,14 @@ typedef pair <int,int> pii;
 map<pii,ll>dp;
 //calculo de la suma de los elementos de forma lineal
 ll prefixSum(int i,int j,ll arr[]){
-    if(j==i){
-        return arr[i];
+    ll &ans =dp.find({i,j})->second;
+    if(ans>0){
+        return ans;
     }
-    ll sum_i=0,sum_j=0;
-    return arr[j]-arr[i-1];
+    if(j==i){
+        return ans=arr[i];
+    }
+    return ans=arr[j]-arr[i-1];
 }
 ll op(ll a,ll b){
     return a+b;
