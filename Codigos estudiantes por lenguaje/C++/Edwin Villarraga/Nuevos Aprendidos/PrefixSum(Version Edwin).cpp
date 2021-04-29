@@ -1,5 +1,5 @@
 /*
-    Author : Edanv 
+    Author : Edanv
     29/04/21
     Prefix Sum desde un indece i hasta un j
     O(N)
@@ -7,8 +7,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long int ll;
+typedef pair <int,int> pii;
+//guardamos los valores del i,j ya calculados (en caso que noo hay updates)
+map<pii,ll>dp;
 //calculo de la suma de los elementos de forma lineal
 ll prefixSum(int i,int j,ll arr[]){
+    if(j==i){
+        return arr[i];
+    }
     ll sum_i=0,sum_j=0;
     return arr[j]-arr[i-1];
 }
@@ -33,13 +39,20 @@ int main(){
     ll temp[n+1];
     memset(temp,0,sizeof(temp));
     sumArr(temp,arr,n+1,1);
-    cout<<endl;
     /*
     for_each(temp,temp+n+1,[&](ll a){
              cout<<a<<" ";
              });
              cout<<endl;
              */
-    cout<<prefixSum(7,8,temp)<<endl;
+    int i=7,j=8;
+    dp[{i,j}]=prefixSum(i,j,temp);
+    cout<<(dp.find({i,j})->second)<<endl;
+    i=1,j=3;
+    dp[{i,j}]=prefixSum(i,j,temp);
+    cout<<(dp.find({i,j})->second)<<endl;
+    i=1,j=1;
+    dp[{i,j}]=prefixSum(i,j,temp);
+    cout<<(dp.find({i,j})->second)<<endl;
     return 0;
 }
