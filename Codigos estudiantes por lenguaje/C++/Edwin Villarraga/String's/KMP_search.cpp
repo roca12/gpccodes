@@ -1,52 +1,34 @@
-#include<bits/stdc++.h>
-#include<cstdlib>
+#include <bits/stdc++.h>
 using namespace std;
-void computeLPSArray(string pat,int M,int lps[]){
-    int len=0;
-    int i=1;
-    lps[0]=0;
-    while(i<M){
-        if(pat[i]==pat[len]){
-            len++;
-            lps[i]=len;
-            i++;
-        }else{
-            if(len !=0){
-                len=lps[len-1];
-            }
-            else{
-                lps[i]=len;
-                i++;
-            }
+vector<int> get_phi(string &p) {
+    vector<int> phi(p.size());
+    phi[0] = 0;
+    for(int i = 1, j = 0; i < p.size(); ++i ) {
+        while(j > 0 && p[i] != p[j] ) j = phi[j-1];
+        if(p[i] == p[j]){
+            ++j;
         }
+        phi[i] = j;
     }
+    return phi;
 }
-void KMPsearch(string pat,string txt){
-    int M=pat.size();
-    int N=txt.size();
-    int lps[M];
-    int j=0;
-    computeLPSArray(pat,M,lps);
-    int i=0;
-    while(i<N){
-        if(pat[j]==txt[i]){
-            j++;
-            i++;
-        }
-        if(j==M){
-            cout<<"Patron encontrado en el indice "<<(i-j)<<endl;
-            j=lps[j-1];
-        }else if(i<N && pat[j]!=txt[i]){
-            if(j!=0){
-                j = lps[j-1];
-            }else{
-                i++;
+int get_match(string &t, string &p) {
+    vector<int> phi = get_phi(p);
+    int matches = 0;
+    for(int i = 0, j = 0; i < t.size(); ++i ) {
+        while(j > 0 && t[i] != p[j] ) j = phi[j-1];
+            if(t[i] == p[j]) ++j;
+                if(j == p.size()) {
+                matches++;
+                cout<<"Pattern found at index "<<(i - j + 1)<<endl;
+                j = phi[j-1];
             }
         }
-    }
+    return matches;
 }
-int main() {
-    string txt = "que hacen los hps, los malparidos, los mas gonorreas";
-    string pat = "los";
-    KMPsearch(pat,txt);
+int main(){
+    string text = "Lorem ipsum dolor sit amet, consectetur";
+    string pattern = "ipsum";
+    int amount = get_match(text,pattern);
+    cout<<amount<<endl;
 }
