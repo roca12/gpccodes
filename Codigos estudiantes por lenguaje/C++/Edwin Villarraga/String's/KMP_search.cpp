@@ -32,5 +32,6 @@ int main(){
     string pattern;
     getline(cin,pattern);
     int amount = get_match(text,pattern);
-    cout<<((amount==0)?"Palabra no encontrada":"Palabra encontrada "+to_string(amount))<<endl;
+    cout<<((amount==0)?"Palabra no encontrada":
+           "Palabra encontrada "+to_string(amount))<<endl;
 }
