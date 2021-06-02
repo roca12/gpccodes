@@ -20,7 +20,7 @@ int get_match(string &t, string &p) {
             if(t[i] == p[j]) ++j;
                 if(j == p.size()) {
                 matches++;
-                cout<<"Pattern found at index "<<(i - j + 1)<<endl;
+                cout<<"Pattern found at index "<<(i - j)<<endl;
                 j = phi[j-1];
             }
         }
