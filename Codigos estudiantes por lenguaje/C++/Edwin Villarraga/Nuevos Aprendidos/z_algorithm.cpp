@@ -15,8 +15,6 @@ struct z_algorithm{
     void search_pattern(string text, string pattern){
         string concat = pattern + "$" + text;
         int l = concat.size();
-
-        // Construct Z array
         vector<int>Z=z_algorithm_array(concat);
         for (int i = 0; i < l; ++i){
             if (Z[i] == pattern.length()){
