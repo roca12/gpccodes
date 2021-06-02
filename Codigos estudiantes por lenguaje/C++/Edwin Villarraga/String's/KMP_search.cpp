@@ -27,8 +27,10 @@ int get_match(string &t, string &p) {
     return matches;
 }
 int main(){
-    string text = "Lorem ipsum dolor sit amet, consectetur";
-    string pattern = "ipsum";
+    string text;
+    getline(cin,text);
+    string pattern;
+    getline(cin,pattern);
     int amount = get_match(text,pattern);
-    cout<<amount<<endl;
+    cout<<((amount==0)?"Palabra no encontrada":"Palabra encontrada "+to_string(amount))<<endl;
 }
