@@ -8,67 +8,41 @@ class NodeMayor{
         int _end;
         int suffixIndex;
         bool verifyNull = false;
-        NodeMayor(){
-            verifyNull = false;
-            start = -1;
-            _end = -1;
-            suffixIndex = -1;
-        };
-        NodeMayor(int _start){
-            start = _start;
-        }
-        NodeMayor(int _start, int __end){
-            start = _start;
-            _end = __end;
-        }
-
-        bool operator !=(const NodeMayor &n){
-            return !(
-                    (n.start == start) &&
-                    (n._end == _end) &&
-                    (n.suffixIndex == suffixIndex)
-                    );
-        }
-        bool operator ==(const NodeMayor &n){
-            return (
-                    (n.start == start) &&
-                    (n._end == _end) &&
-                    (n.suffixIndex == suffixIndex)
-                    );
-        }
+        NodeMayor(){};
 };
 
 struct _Node: NodeMayor{
     vector<_Node> suffixLink;
     map<char, _Node> edgeMap;
-    _Node():NodeMayor(){
-        suffixLink.clear();
-        edgeMap.clear();
-    }
-    _Node(int _start):NodeMayor(_start){
-        suffixLink.clear();
-    }
-    _Node(int _start, int __end):NodeMayor(_start, __end){
-        suffixLink.clear();
-    }
+    _Node():NodeMayor(){}
 };
 
 struct Node:_Node{
+    bool init;
     Node():_Node(){
-        suffixLink = vector<_Node>{};
-        verifyNull = false;
+        init = false;
         start = -1;
-        _end = -1;
         suffixIndex = -1;
     }
-    Node(_Node _sl, int _start):_Node(_start){
+    Node(_Node _sl, int _start):_Node(){
+        start = _start;
+        _end = -1;
+        suffixIndex = -1;
+        edgeMap = map<char, _Node>{};
         suffixLink = vector<_Node>{_sl};
+        init = false;
     }
-    Node(_Node _sl, int _start, int __end):_Node(_start, __end){
+    Node(_Node _sl, int _start, int __end):_Node(){
         suffixLink = vector<_Node>{_sl};
+        start = _start;
+        _end = __end;
+        suffixIndex = -1;
+        edgeMap = map<char, _Node>{};
+        init = false;
     }
+
     string __to_string(string phrase, int leafEnd){
-        return _end == -1? phrase.substr(start, leafEnd+1) : phrase.substr(start, _end +1);
+        return _end == -1? phrase.substr(start, (leafEnd+1 - start)) : phrase.substr(start, (_end +1 - start));
     }
 };
 
@@ -93,6 +67,27 @@ Node convertToNode(_Node n){
     newNode.verifyNull = n.verifyNull;
     return newNode;
 }
+
+bool compareTo(Node m, Node n){
+    bool ans = (n.start == m.start) &&
+        (n._end == m._end) &&
+        (n.suffixIndex == m.suffixIndex);
+    if(!m.verifyNull && !n.verifyNull && ans && (n.init == m.init) && !m.init){
+        return compareTo(convertToNode(m.suffixLink[0]), convertToNode(n.suffixLink[0]));
+    }
+    return (n.init == m.init)?true:ans;
+}
+
+bool distinctTo(Node m, Node n){
+    bool ans = (n.start != m.start) ||
+        (n._end != m._end) ||
+        (n.suffixIndex != m.suffixIndex);
+    if(!m.verifyNull && !n.verifyNull && !ans && (n.init == m.init) && !m.init){
+        return compareTo(convertToNode(m.suffixLink[0]), convertToNode(n.suffixLink[0]));
+    }
+    return (n.init != m.init && !ans)?true:false;
+}
+
 struct Ukkonen{
     bool DETAILED = true;
     char UNIQUE = '$';
@@ -102,15 +97,15 @@ struct Ukkonen{
     Node root;
     int leafEnd;
     Node internalNode;
-    Node activeNode;
+    Node &activeNode = root;
     int activeEdge;
     int activeLength;
     int remainingSuffixCount;
 
     Ukkonen(){
         root = Node(root, -1);
+        root.init = true;
         leafEnd = -1;
-        activeNode = root;
         activeEdge = -1;
         activeLength = 0;
         remainingSuffixCount = 0;
@@ -121,9 +116,9 @@ struct Ukkonen{
         if (activeNode.start == -1) {
             sb+="root, ";
         } else {
-            sb+=(phrase.substr(activeNode.start, activeNode.start + 1))+(", ");
+            sb+=(phrase.substr(activeNode.start, 1))+(", ");
         }
-        sb+=(phrase.substr(activeEdge, activeEdge + 1)) + (", ");
+        sb+=(phrase.substr(activeEdge, 1)) + (", ");
         sb+=to_string(activeLength) + (")");
         cout<<sb<<endl;
     }
@@ -156,8 +151,7 @@ struct Ukkonen{
         }
         leafEnd = index;
         remainingSuffixCount++;
-        Node newNode;
-        internalNode = newNode;
+        internalNode.verifyNull = true;
         while (remainingSuffixCount > 0) {
             if (activeLength == 0) {
                 if (DETAILED) {
@@ -184,12 +178,7 @@ struct Ukkonen{
 
             } else {
                 _Node _next = activeNode.edgeMap.find(phrase[activeEdge])->second;
-                Node next;
-                next.edgeMap = _next.edgeMap;
-                next.start = _next.start;
-                next.suffixIndex = _next.suffixIndex;
-                next.suffixLink = _next.suffixLink;
-                next.verifyNull = _next.verifyNull;
+                Node next = convertToNode(_next);
                 if (DETAILED) {
                     cout<<"Trick One: Skip/Count"<<endl;
                 }
@@ -200,7 +189,7 @@ struct Ukkonen{
                     if (DETAILED) {
                         cout<<"Rule Three"<<endl;
                     }
-                    if (!internalNode.verifyNull && activeNode != root) {
+                    if (!internalNode.verifyNull && distinctTo(activeNode, root)) {
                         internalNode.suffixLink = vector<_Node>{activeNode};
                         internalNode.verifyNull = true;
                     }
@@ -212,51 +201,51 @@ struct Ukkonen{
                         printActivePoint();
                     }
                     if (DETAILED) {
-                            cout<<"Trick Two"<<endl;
-                        }
+                        cout<<"Trick Two"<<endl;
+                    }
                         break;
-                    }
-                    if (DETAILED) {
-                        cout<<"Rule Two: Split Node"<<endl;
-                    }
-                    int splitEnd = next.start + activeLength - 1;
-                    Node split = Node(root, next.start, splitEnd);
-                    activeNode.edgeMap.insert({phrase[activeEdge], split});
-                    Node newNode = Node(root, index);
-                    split.edgeMap.insert({phrase[index], convertTo(newNode)});
-                    next.start += activeLength;
-                    split.edgeMap.insert({phrase[next.start], next});
-
-                    if (internalNode.verifyNull) {
-                        if (DETAILED) {
-                            cout<<"Set up suffixLink from last internal node to this newly created one"<<endl;
-                        }
-                        internalNode.suffixLink = vector<_Node>{split};
-                    }
-                    internalNode = split;
                 }
+                if (DETAILED) {
+                    cout<<"Rule Two: Split Node"<<endl;
+                }
+                int splitEnd = next.start + activeLength - 1;
+                Node split = Node(root, next.start, splitEnd);
+                activeNode.edgeMap.insert({phrase[activeEdge], split});
+                Node newNode = Node(root, index);
+                split.edgeMap.insert({phrase[index], convertTo(newNode)});
+                next.start += activeLength;
+                split.edgeMap.insert({phrase[next.start], next});
 
-                remainingSuffixCount--;
-                if (activeNode == root && activeLength > 0) {
+                if (!internalNode.verifyNull) {
                     if (DETAILED) {
-                        cout<<"ER2C1"<<endl;
+                        cout<<"Set up suffixLink from last internal node to this newly created one"<<endl;
                     }
-                    activeLength--;
-                    activeEdge = index - remainingSuffixCount + 1;
-                    if (DETAILED) {
-                        printActivePoint();
-                    }
-                } else if (activeNode != root) { // ER2C2
-                    if (DETAILED) {
-                        cout<<"ER2C2"<<endl;
-                    }
-                    activeNode = convertToNode(activeNode.suffixLink[0]);
-                    if (DETAILED) {
-                        printActivePoint();
-                    }
+                    internalNode.suffixLink = vector<_Node>{split};
+                }
+                internalNode = split;
+            }
+
+            remainingSuffixCount--;
+            if (compareTo(activeNode, root) && activeLength > 0) {
+                if (DETAILED) {
+                    cout<<"ER2C1"<<endl;
+                }
+                activeLength--;
+                activeEdge = index - remainingSuffixCount + 1;
+                if (DETAILED) {
+                    printActivePoint();
+                }
+            } else if (distinctTo(activeNode, root)) { // ER2C2
+                if (DETAILED) {
+                    cout<<"ER2C2"<<endl;
+                }
+                activeNode = convertToNode(activeNode.suffixLink[0]);
+                if (DETAILED) {
+                    printActivePoint();
                 }
             }
         }
+    }
 
     void dfsSetAndPrint(Node n, int labelHeight) {
         if (n.verifyNull) {
@@ -268,14 +257,12 @@ struct Ukkonen{
         bool isLeaf = true;
         for (auto entry : n.edgeMap) {
             Node node = convertToNode(entry.second);
-            // if n is inner node
             if (isLeaf && n.start != -1) {
                 cout<<" "<<n.suffixIndex<<endl;
             }
             isLeaf = false;
             dfsSetAndPrint(node, labelHeight + edgeLength(node));
         }
-        // if n is a leaf
         if (isLeaf) {
             n.suffixIndex = phrase.size() - labelHeight;
             cout<<" "<<n.suffixIndex<<endl;
